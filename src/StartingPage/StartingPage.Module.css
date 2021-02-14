@@ -1,0 +1,103 @@
+.StartingPage {
+padding: 5%;
+}
+
+
+
+h1 {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 4.5rem;
+  font-weight: 300;
+  color:rgb(25, 25, 77);
+}
+
+.Hint {
+  position: absolute;
+  top: 55%;
+  left: 10%;
+  border-radius: 5%;
+  box-shadow: 5px 5px 15px 5px rgba(166, 168, 182, 0.582);
+  width: 80%;
+  text-align: center;
+  padding: 2%;
+  font-size: 1.6rem;
+
+}
+
+.Hint p {
+  font-size: 1.6rem;
+  padding: 2%;
+  color: rgb(158, 157, 157);
+  letter-spacing: 3px;
+
+}
+
+div .Wide {
+  letter-spacing: normal;
+
+}
+
+div.Hint div p {
+  color: rgb(25, 25, 77);
+  padding: 5%;
+}
+
+/* .Info {
+  position: absolute;
+  color: rgb(166, 168, 182)d;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid rgb(166, 168, 182);
+} */
+
+
+i {
+  display: inline;
+  width: 10px;
+  height: 10px;
+  color: rgb(25, 25, 77);
+  font-size: 2.2rem;
+  margin-right: 15px;
+}
+
+.Arrow i {
+  /* display: block; */
+  border: 2px solid black;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+  font-size: 1.4rem;
+  padding: 1px 0 0 5px;
+  margin-right: 5px;
+}
+
+div.Hint div {
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-55%);
+}
+
+.Round {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  background-color: rgb(25, 25, 77);
+
+  border: 0 solid transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.Round i {
+  color: white;
+  font-size:3rem;
+}
