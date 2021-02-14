@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import StartingPage from './StartingPage/StartingPage';
+import StartingPage from './Pages/StartingPage/StartingPage';
 
 import './App.css'
+import MainPage from './Pages/MainPage/MainPage';
 
 function App() {
   return (
-    <StartingPage/>
+    // <StartingPage/>
+    <MainPage/>
   );
 }
 
