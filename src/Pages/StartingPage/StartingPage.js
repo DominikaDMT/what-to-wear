@@ -1,4 +1,5 @@
 import React from 'react';
+import  {Link} from 'react-router-dom'
 
 import classes from './StartingPage.Module.css'
 
@@ -15,7 +16,9 @@ const StartingPage = () => {
       <p>i</p>
       <div><p className={classes.Wide}><i class="far fa-check-square" ></i> ZATWIERDŹ!</p></div>
     </div>
+    <Link to='/mainPage'>
     <button className={classes.Round}><i className="fas fa-arrow-right"></i></button>
+    </Link>
     </div>
   );
 }
