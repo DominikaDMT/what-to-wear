@@ -3,14 +3,12 @@ import React from 'react';
 import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
 import Content from '../../Elements/Content/Content';
 import MainButton from '../../Elements/MainButton/MainButton.';
-import NavBar from '../../Elements/NavBar/NavBar';
 
 import classes from './MainPage.Module.css';
 
 const MainPage = () => {
   return (
     <>
-      <NavBar />
       <Content>
         <div className={classes.Outfit}>
           <div className={classes.Level1}></div>

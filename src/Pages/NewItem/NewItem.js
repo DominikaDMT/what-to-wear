@@ -3,16 +3,34 @@ import React from 'react';
 import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
 import Content from '../../Elements/Content/Content';
 import MainButton from '../../Elements/MainButton/MainButton.';
-import NavBar from '../../Elements/NavBar/NavBar';
 
 import classes from './NewItem.Module.css';
 
 const NewItem = () => {
   return (
     <>
-      <NavBar />
       <Content>
         <div className={classes.Photo}></div>
+        
+        <p className={classes.Title}>Jaki kolor przeważa?</p>
+        <select name='colors' id='colors'>
+          <optgroup label='Mieszane'>
+            <option value='bw'>czarno-biały</option>
+            <option value='multi'>wielokolorowy</option>
+          </optgroup>
+          <optgroup label='Kolory'>
+            <option value='red'>czarny</option>
+            <option value='red'>szary</option>
+            <option value='red'>biały</option>
+            <option value='red'>czerwony</option>
+            <option value='red'>niebieski</option>
+            <option value='red'>zielony</option>
+            <option value='red'>żółty</option>
+            <option value='red'>pomarańczowy</option>
+            <option value='red'>różowy</option>
+            <option value='red'>beżowy</option>
+          </optgroup>
+        </select>
         <p className={classes.Title}>Jaki to typ ubrania?</p>
         <div className={classes.Description}>
           <label>

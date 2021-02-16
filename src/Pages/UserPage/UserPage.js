@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Content from '../../Elements/Content/Content';
-import NavBar from '../../Elements/NavBar/NavBar';
 
 import classes from './UserPage.Module.css';
 
@@ -17,7 +16,6 @@ const UserPage = () => {
 
   return (
     <>
-      <NavBar></NavBar>
       <Content>
         <div className={classes.ProfilePicture}>
           <img src={USER.image} alt={USER.name}/>

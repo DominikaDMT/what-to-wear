@@ -1,10 +1,15 @@
 .Navigation {
-  background-color: rgba(166, 168, 182, 0.432);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  /* background-color: rgba(166, 168, 182, 0.432); */
+  background-color: rgb(217, 217, 224);
   padding: 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 5;
+  box-shadow: 0 0 10px 2px #555;
 }
 
 .Navigation i {
