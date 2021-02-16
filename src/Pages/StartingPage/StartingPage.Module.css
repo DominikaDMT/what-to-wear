@@ -1,8 +1,6 @@
 .StartingPage {
-padding: 5%;
+  padding: 5%;
 }
-
-
 
 h1 {
   position: absolute;
@@ -13,7 +11,7 @@ h1 {
   font-family: 'Pacifico', cursive;
   font-size: 4.5rem;
   font-weight: 300;
-  color:rgb(25, 25, 77);
+  color: rgb(25, 25, 77);
 }
 
 .Hint {
@@ -26,7 +24,6 @@ h1 {
   text-align: center;
   padding: 2%;
   font-size: 1.6rem;
-
 }
 
 .Hint p {
@@ -34,12 +31,10 @@ h1 {
   padding: 2%;
   color: rgb(158, 157, 157);
   letter-spacing: 3px;
-
 }
 
 div .Wide {
   letter-spacing: normal;
-
 }
 
 div.Hint div p {
@@ -56,7 +51,6 @@ div.Hint div p {
   text-align: center;
   border: 1px solid rgb(166, 168, 182);
 } */
-
 
 i {
   display: inline;
@@ -99,5 +93,5 @@ div.Hint div {
 
 .Round i {
   color: white;
-  font-size:3rem;
+  font-size: 3rem;
 }
