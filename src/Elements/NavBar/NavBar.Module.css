@@ -8,9 +8,6 @@
 }
 
 .Navigation i {
-  padding: 1%;
-  height: 35px;
-  width: 35px;
   color: rgba(25, 25, 77, 0.342);
   font-size: 3rem;
 }
@@ -18,7 +15,10 @@
 .Navigation div {
   height: 35px;
   width: 35px;
-}
+  display: flex;
+  justify-content: center;
+  padding-top: 1%;
+} 
 
 h2 {
   text-align: center;
