@@ -4,14 +4,20 @@
   margin: 5px;
   text-align: center;
   height: 60px;
-  width: 180px;
+  width: 190px;
   padding: 5px;
   color: white;
   background-color: rgb(25, 25, 77);
   box-shadow: 0 0 0px 5px rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.Button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .Button p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   letter-spacing: 2px;
 }

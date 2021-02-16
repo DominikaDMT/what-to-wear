@@ -1,0 +1,45 @@
+.Description {
+  width: 70%;
+  display: flex;
+  padding: 0 7%;
+  flex-direction: column;
+  /* width: 50vw; */
+}
+
+.Title {
+  font-size: 1.6rem;
+  margin: 3%;
+  font-weight: bold;
+}
+
+label {
+  font-size: 1.6rem;
+  padding: 3%;
+}
+
+.AddItem {
+  background-color: rgba(166, 168, 182, 0.432);
+  font-size: 1.6rem;
+  padding: 3%;
+  border: none;
+  border-radius: 5px;
+  color: rgb(25, 25, 77);
+  margin: 3%;
+  text-align: center;
+}
+
+select {
+  outline: none;
+  background-color: #fff;
+  border: none;
+  padding: 1% 3%;
+  margin: 3%;
+  border: 2px solid rgba(166, 168, 182, 0.432);
+  width: 51vw;
+}
+
+select:focus,
+select:hover,
+select::selection {
+  border: 2px solid rgba(166, 168, 182, 0.432);
+}

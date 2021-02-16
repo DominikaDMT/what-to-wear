@@ -1,0 +1,16 @@
+.Paragraph,
+.Paragraph strong {
+  font-size: 2rem;
+}
+
+.Photo {
+  width: 51vw;
+  height: 55vw;
+  background-color: rgba(166, 168, 182, 0.432);
+  margin: 3%;
+}
+
+.Photo img {
+  height: 100%;
+  width: 100%;
+}

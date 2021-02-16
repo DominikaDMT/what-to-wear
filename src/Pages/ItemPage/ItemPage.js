@@ -25,6 +25,9 @@ const ItemPage = (props) => {
         <p className={classes.Name}>Nazwa: <strong>{ITEM.name}</strong></p>
         <p className={classes.Name}>Kolor: <strong>{ITEM.color}</strong></p>
         <p className={classes.Name}>Id: <strong>{itemId}</strong></p>
+        <button className={classes.EditItem}>
+          <Link to={`/item/edit/${itemId}`}>Edit item</Link>
+        </button>
       </Content>
       <ButtonsContainer>
         <Link to='/item/all'>
