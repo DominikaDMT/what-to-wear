@@ -15,8 +15,12 @@ const NavLinks = () => {
       <NavLink to='/item/new'>Add item</NavLink>
       </li>
       <li>
+      <NavLink to='/item/all'>All items</NavLink>
+      </li>
+      <li>
       <NavLink to='/auth'>Authenticate</NavLink>
       </li>
+
     </ul>
   );
 }

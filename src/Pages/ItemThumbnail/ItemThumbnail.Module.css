@@ -1,0 +1,13 @@
+.ItemThumbnail {
+  margin: 2%;
+  width: 29%;
+  height: 25%;
+  /* background-color: rgb(73, 73, 73); */
+  display: flex;
+  align-items: center;
+}
+
+.ItemThumbnail img {
+  width: 100%;
+
+}
