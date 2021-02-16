@@ -14,7 +14,7 @@ const NavBar = () => {
 
   return (
     <>
-      {sideBarIsVisible && (<SideDrawer closeSideDrawer={toggleSideDrawer}><NavLinks /></SideDrawer>)}
+      <SideDrawer closeSideDrawer={toggleSideDrawer} show={sideBarIsVisible}><NavLinks /></SideDrawer>
       <nav className={classes.Navigation}>
         <div className={classes.Hamburger} onClick={toggleSideDrawer}>
           <i className='fas fa-bars'></i>
