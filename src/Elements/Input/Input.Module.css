@@ -1,0 +1,19 @@
+div.Input {
+  /* background-color: #ddd; */
+  width: 85%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Input input {
+  width: 100%;
+  padding: 3%;
+  font-size: 1.6rem;
+}
+
+.Input label {
+  /* margin: 3%; */
+  padding: 5% 0;
+}

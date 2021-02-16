@@ -5,15 +5,18 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import './App.css';
-import NavBar from './Elements/NavBar/NavBar';
-import AllItemsPage from './Pages/AllItemsPage/AllItemsPage';
 
+import AllItemsPage from './Pages/AllItemsPage/AllItemsPage';
+import Auth from './Pages/Auth/Auth';
+import EditItem from './Pages/EditItem/EditItem';
+import ItemPage from './Pages/ItemPage/ItemPage';
 import MainPage from './Pages/MainPage/MainPage';
+import NavBar from './Elements/NavBar/NavBar';
 import NewItem from './Pages/NewItem/NewItem';
 import StartingPage from './Pages/StartingPage/StartingPage';
 import UserPage from './Pages/UserPage/UserPage';
-import ItemPage from './Pages/ItemPage/ItemPage';
+
+import './App.css';
 
 function App() {
   return (
@@ -23,6 +26,10 @@ function App() {
         <Route path='/mainPage'>
           <NavBar />
           <MainPage />
+        </Route>
+        <Route path='/auth'>
+          <NavBar />
+          <Auth/>
         </Route>
         <Route path='/user'>
           <NavBar />
@@ -35,6 +42,10 @@ function App() {
         <Route path='/item/new'>
           <NavBar />
           <NewItem />
+        </Route>
+        <Route path='/item/edit/:itemid'>
+          <NavBar />
+          <EditItem/>
         </Route>
         <Route path='/item/:itemid'>
           <NavBar />
