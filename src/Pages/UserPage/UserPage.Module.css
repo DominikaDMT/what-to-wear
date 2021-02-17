@@ -1,6 +1,8 @@
 .ProfilePicture {
   width: 70vw;
   height: 70vw;
+  max-width: 300px;
+  max-height: 300px;
   background-color: rgba(166, 168, 182, 0.432);
   margin: 3%;
 }
@@ -13,9 +15,13 @@
 
 .Name {
   font-size: 1.6rem;
-  margin: 3%;
+  margin: 7% 0;
   width: 100%;
   text-align: center;
+}
+
+.Info {
+  
 }
 
 .Name, .Name strong {

@@ -1,25 +1,28 @@
 .Outfit {
   /* background-color: rgba(167, 167, 167, 0.726); */
-  width: 50%;
-  height: 100%;
+  width: 70%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .Outfit div {
   background-color: rgba(204, 148, 197, 0.671);
   margin: 10px;
+  width: 100%;
+  max-width: 700px;
 }
 
 .Outfit div:nth-child(1) {
-  height: 100px;
+  height: 30%;
 }
 .Outfit div:nth-child(2) {
-  height: 200px;
+  height: 50%;
 }
 .Outfit div:nth-child(3) {
-  height: 50px;
+  height: 20%;
 }
 
 .SmallButton {
@@ -41,3 +44,18 @@
 .SmallButton:nth-of-type(1) i {
   padding-left: 10px;
 }
+
+
+@media (min-width: 450px ) {
+
+  .Outfit {
+    width: 70%;
+  }
+  .Outfit div {
+    width: 100%;
+  }
+}
+
+/* @media (min-width: 768px) {
+
+} */

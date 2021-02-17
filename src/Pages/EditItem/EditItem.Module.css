@@ -4,13 +4,21 @@
 }
 
 .Photo {
-  width: 51vw;
-  height: 55vw;
-  background-color: rgba(166, 168, 182, 0.432);
+  width: 30vh;
+  height: 18vh;
+  max-height: 300px;
+  text-align: center;
   margin: 3%;
 }
 
 .Photo img {
   height: 100%;
-  width: 100%;
+}
+
+
+@media (min-height: 700px ) {
+  .Photo {
+    height: 28vh;
+  }
+
 }

@@ -20,9 +20,11 @@ const UserPage = () => {
         <div className={classes.ProfilePicture}>
           <img src={USER.image} alt={USER.name}/>
         </div>
+        <div className={classes.Info}>
         <p className={classes.Name}>Nazwa: <strong>{USER.name}</strong></p>
         <p className={classes.Name}>E-mail: <strong>{USER.email}</strong> </p>
         <p className={classes.Name}>Liczba ubrań: <strong>{USER.amountOfClothes}</strong> </p>
+        </div>
       </Content>
     </>
   );

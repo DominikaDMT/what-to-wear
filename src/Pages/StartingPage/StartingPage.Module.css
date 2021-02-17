@@ -1,97 +1,102 @@
 .StartingPage {
-  padding: 5%;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  position: absolute;
-  top: 30%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-family: 'Pacifico', cursive;
-  font-size: 4.5rem;
+.Logo {
+  font-size: 7vw;
   font-weight: 300;
+  font-family: 'Pacifico', cursive;
   color: rgb(25, 25, 77);
 }
 
 .Hint {
-  position: absolute;
-  top: 55%;
-  left: 10%;
-  border-radius: 5%;
-  box-shadow: 5px 5px 15px 5px rgba(166, 168, 182, 0.582);
-  width: 80%;
+  width: 350px;
+  padding: 20px;
+  margin-top: 15vh;
   text-align: center;
-  padding: 2%;
-  font-size: 1.6rem;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 5px 5px 15px 5px rgba(166, 168, 182, 0.582);
 }
 
 .Hint p {
-  font-size: 1.6rem;
-  padding: 2%;
-  color: rgb(158, 157, 157);
-  letter-spacing: 3px;
+  padding: 10px;
+  font-size: 1.8rem;
+  letter-spacing: 4px;
 }
 
-div .Wide {
-  letter-spacing: normal;
+.Hint div:nth-of-type(3) p {
+  letter-spacing: 1px;
 }
 
-div.Hint div p {
-  color: rgb(25, 25, 77);
-  padding: 5%;
-}
-
-/* .Info {
-  position: absolute;
-  color: rgb(166, 168, 182)d;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  text-align: center;
-  border: 1px solid rgb(166, 168, 182);
-} */
-
-i {
-  display: inline;
-  width: 10px;
-  height: 10px;
-  color: rgb(25, 25, 77);
-  font-size: 2.2rem;
-  margin-right: 15px;
-}
-
-.Arrow i {
-  /* display: block; */
-  border: 2px solid black;
-  border-radius: 2px;
-  width: 20px;
-  height: 20px;
-  font-size: 1.4rem;
-  padding: 1px 0 0 5px;
+.Hint p i {
   margin-right: 5px;
+  font-size: 1.8rem;
 }
 
-div.Hint div {
-  width: 50%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-55%);
-}
-
-.Round {
+.RoundBtn {
   position: absolute;
   bottom: 5%;
   right: 10%;
-  background-color: rgb(25, 25, 77);
-
-  border: 0 solid transparent;
-  border-radius: 50%;
   width: 60px;
   height: 60px;
+  border: 0 solid transparent;
+  border-radius: 50%;
+  background-color: rgb(25, 25, 77);
 }
 
-.Round i {
-  color: white;
+.RoundBtn i {
+  padding-top: 2px;
   font-size: 3rem;
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .Logo {
+    font-size: 10vw;
+  }
+
+  .Hint {
+    width: 300px;
+    padding: 15px;
+  }
+
+  .Hint p {
+    padding: 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Logo {
+    font-size: 11vw;
+  }
+  .Hint {
+    width: 250px;
+    padding: 10px;
+    margin-top: 10vh;
+  }
+  .Hint p,
+  .Hint p i {
+    font-size: 1.6rem;
+  }
+
+  .Hint p {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .StartingPage {
+    justify-content: flex-end;
+  }
+  .Logo {
+    font-size: 12.5vw;
+  }
+  .Hint {
+    margin: 20vh 0 20vh;
+  }
 }

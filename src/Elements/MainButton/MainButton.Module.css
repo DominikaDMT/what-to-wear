@@ -21,3 +21,9 @@
   font-size: 1.6rem;
   letter-spacing: 2px;
 }
+
+@media (max-width: 310px) {
+  .Button p {
+    font-size: 1.2rem;
+  }
+}

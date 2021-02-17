@@ -2,19 +2,14 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  /* background-color: rgba(166, 168, 182, 0.432); */
+  padding: 15px 25px;
   background-color: rgb(217, 217, 224);
-  padding: 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 5;
+  max-height: 70px;
   box-shadow: 0 0 10px 2px #555;
-}
-
-.Navigation i {
-  color: rgba(25, 25, 77, 0.342);
-  font-size: 3rem;
 }
 
 .Navigation div {
@@ -22,8 +17,46 @@
   width: 35px;
   display: flex;
   justify-content: center;
-  padding-top: 1%;
 } 
+
+.Hamburger i {
+  padding: 5px;
+  color: rgba(25, 25, 77, 0.342);
+  font-size: 3rem;
+}
+
+.Logo {
+  font-family: 'Pacifico', cursive;
+  color: rgb(25, 25, 77);
+  padding: 15px;
+  font-size: 4rem;
+  font-weight: normal;
+
+}
+
+
+@media (max-width: 576px) {
+  .Navigation {
+    padding: 15px;
+  }
+  .Logo {
+    font-size: 3rem;
+  padding: 10px;
+
+  }
+  
+}
+@media (max-width: 360px) {
+  .Logo {
+    font-size: 2.5rem;
+  padding: 5px;
+
+  }
+  
+}
+
+/* 
+
 
 h2 {
   text-align: center;
@@ -33,3 +66,25 @@ h2 {
   font-size: 2.5rem;
   font-weight: 300;
 }
+
+
+@media (min-width: 450px ) {
+  .Navigation div {
+    padding-top: 0.5%;
+  } 
+
+  h2 {
+    font-size: 3rem;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .Navigation div {
+    padding-top: 0.2%;
+  } 
+
+  h2 {
+    font-size: 4rem;
+  }
+}  */
