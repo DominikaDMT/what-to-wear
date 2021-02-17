@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
 import Content from '../../Elements/Content/Content';
 import Input from '../../Elements/Input/Input';
@@ -10,6 +10,9 @@ import {
   VALIDATOR_EMAIL,
 } from '../../Util/validators';
 import classes from './Auth.Module.css';
+
+import {AuthContext} from '../../context/auth-context'
+import { Redirect, useHistory } from 'react-router-dom';
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -43,15 +46,52 @@ const formReducer = (state, action) => {
 };
 
 const Auth = () => {
-  const [formValidity, dispatch] = useReducer(formReducer, {
+
+  const auth = useContext(AuthContext);
+
+  const [inputsValidity, dispatch] = useReducer(formReducer, {
     usernameInput: { value: '', isValid: false },
     emailInput: { value: '', isValid: false },
     passwordInput: { value: '', isValid: false },
   });
 
+  const [formIsValid, setFormIsValid] = useState(false);
+  const [isRegisterMode, setIsRegisterMode] = useState(false);
+
   const loginHadler = () => {
-    console.log(formValidity);
+    console.log(inputsValidity);
+    auth.login();
   };
+
+  const changeMode = () => {
+    setIsRegisterMode(prevState => !prevState)
+  }
+
+
+  useEffect(() => {
+  if (!isRegisterMode) {
+    if (
+      inputsValidity.usernameInput.isValid &&
+      inputsValidity.passwordInput.isValid
+    ) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  }
+  if (isRegisterMode) {
+    if (
+      inputsValidity.usernameInput.isValid &&
+      inputsValidity.passwordInput.isValid &&
+      inputsValidity.emailInput.isValid
+    ) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  }
+
+  },[inputsValidity])
 
   return (
     <>
@@ -66,16 +106,19 @@ const Auth = () => {
           errorText='Please enter a valid Username'
           onDispatch={dispatch}
         />
-        <Input
-          element='input'
-          id='email'
-          type='text'
-          placeholder='Enter e-mail'
-          label='E-mail:'
-          validators={[VALIDATOR_EMAIL()]}
-          errorText='Please enter a valid E-mail address'
-          onDispatch={dispatch}
-        />
+
+        {isRegisterMode && (
+          <Input
+            element='input'
+            id='email'
+            type='text'
+            placeholder='Enter e-mail'
+            label='E-mail:'
+            validators={[VALIDATOR_EMAIL()]}
+            errorText='Please enter a valid E-mail address'
+            onDispatch={dispatch}
+          />
+        )}
         <Input
           element='input'
           id='password'
@@ -86,13 +129,14 @@ const Auth = () => {
           errorText='Please enter a valid Password'
           onDispatch={dispatch}
         />
+        <button className={classes.ChangeBtn} onClick={changeMode}>{isRegisterMode ? 'Switch to log in' : 'Switch to rgister'}</button>
       </Content>
       <ButtonsContainer>
         <MainButton
-          disabled={!(formValidity.usernameInput.isValid && formValidity.emailInput.isValid && formValidity.passwordInput.isValid)}
+          disabled={!formIsValid}
           onClick={loginHadler}
         >
-          <p>ENTER</p>
+          <p>{isRegisterMode ? 'Register' : 'Log in'}</p>
         </MainButton>
       </ButtonsContainer>
     </>

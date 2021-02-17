@@ -16,3 +16,15 @@ li {
   color: #000;
 }
 
+.LogoutBtn {
+  background-color: rgba(60, 60, 128, 0.582);
+  font-size: 1.4rem;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin: 10px 0;
+  text-align: center;
+  width: 100px;
+  transform: translateX(-5px);
+}

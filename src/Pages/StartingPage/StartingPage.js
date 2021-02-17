@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import  {Link} from 'react-router-dom'
+
+import {AuthContext} from '../../context/auth-context'
 
 import classes from './StartingPage.Module.css'
 
-
 const StartingPage = () => {
+
+  const auth = useContext(AuthContext);
+
   return (  
     <div className={classes.StartingPage}>
       <h1 className={classes.Logo}>What to Wear?</h1>
@@ -15,7 +19,7 @@ const StartingPage = () => {
         <p>i</p>
         <div><p className={classes.Wide}><i className="far fa-check-square" ></i> ZATWIERDŹ!</p></div>
       </div>
-      <Link to='/mainPage'>
+      <Link to={auth.isLoggedIn ? '/mainPage' : '/auth'}>
         <button className={classes.RoundBtn}><i className="fas fa-arrow-right"></i></button>
       </Link>
     </div>
