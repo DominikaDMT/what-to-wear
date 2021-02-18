@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/what-to-wear/static/css/main.ef82c82e.chunk.css",
+    "main.js": "/what-to-wear/static/js/main.0b1c6e29.chunk.js",
+    "main.js.map": "/what-to-wear/static/js/main.0b1c6e29.chunk.js.map",
+    "runtime-main.js": "/what-to-wear/static/js/runtime-main.0a0dc987.js",
+    "runtime-main.js.map": "/what-to-wear/static/js/runtime-main.0a0dc987.js.map",
+    "static/js/2.3012cc13.chunk.js": "/what-to-wear/static/js/2.3012cc13.chunk.js",
+    "static/js/2.3012cc13.chunk.js.map": "/what-to-wear/static/js/2.3012cc13.chunk.js.map",
+    "static/js/3.2774e21b.chunk.js": "/what-to-wear/static/js/3.2774e21b.chunk.js",
+    "static/js/3.2774e21b.chunk.js.map": "/what-to-wear/static/js/3.2774e21b.chunk.js.map",
+    "index.html": "/what-to-wear/index.html",
+    "static/css/main.ef82c82e.chunk.css.map": "/what-to-wear/static/css/main.ef82c82e.chunk.css.map",
+    "static/js/2.3012cc13.chunk.js.LICENSE.txt": "/what-to-wear/static/js/2.3012cc13.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0a0dc987.js",
+    "static/js/2.3012cc13.chunk.js",
+    "static/css/main.ef82c82e.chunk.css",
+    "static/js/main.0b1c6e29.chunk.js"
+  ]
+}
