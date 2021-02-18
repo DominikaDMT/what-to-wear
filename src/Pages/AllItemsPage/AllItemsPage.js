@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import Content from '../../Elements/Content/Content';
 
 import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
@@ -100,11 +99,9 @@ const itemsList = ITEMS.map(item => <ItemThumbnail key= {item.id} id={item.id} n
         </div>
       </Content>
       <ButtonsContainer>
-        <Link to='/item/new'>
-        <MainButton>
-          <p>ADD NEW ITEM</p>
+        <MainButton to='/item/new'>
+          ADD NEW ITEM
         </MainButton>
-        </Link>
       </ButtonsContainer>
     </>
   );

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
 import Content from '../../Elements/Content/Content';
 import MainButton from '../../Elements/MainButton/MainButton.';
+import SecondaryButton from '../../Elements/SecondaryButton/SecondaryButton';
 
 import classes from './ItemPage.Module.css';
 
@@ -23,20 +24,18 @@ const ItemPage = (props) => {
       <Content>
         <div className={classes.ItemPicture}><img src={ITEM.image} alt={ITEM.name} /></div>
         <div className={classes.Info}>
-        <p className={classes.Name}>Nazwa: <strong>{ITEM.name}</strong></p>
-        <p className={classes.Name}>Kolor: <strong>{ITEM.color}</strong></p>
+        <p className={classes.Name}>Name: <strong>{ITEM.name}</strong></p>
+        <p className={classes.Name}>Color: <strong>{ITEM.color}</strong></p>
         <p className={classes.Name}>Id: <strong>{itemId}</strong></p>
         </div>
-        <button className={classes.EditItem}>
-          <Link to={`/item/edit/${itemId}`}>Edit item</Link>
-        </button>
+        <SecondaryButton to={`/item/edit/${itemId}`}>
+          Edit item
+        </SecondaryButton>
       </Content>
       <ButtonsContainer>
-        <Link to='/item/all'>
-          <MainButton>
-            <p>GO BACK</p>
+          <MainButton to='/item/all'>
+            GO BACK
           </MainButton>
-        </Link>
       </ButtonsContainer>
     </>
   );

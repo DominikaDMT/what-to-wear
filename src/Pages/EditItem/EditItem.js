@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
 import Content from '../../Elements/Content/Content';
@@ -56,18 +56,12 @@ const EditItem = () => {
         <p className={classes.Paragraph}>
           Update item <strong>{itemId}</strong>
         </p>
-        <div className={classes.Photo}>
+        <ItemForm selectValue={editedItem.color}>
           <img src={editedItem.image} alt={editedItem.name} />
-        </div>
-
-        <ItemForm selectValue={editedItem.color} />
+        </ItemForm>
       </Content>
       <ButtonsContainer>
-        <Link to='/item/all'>
-          <MainButton>
-            <p>GO BACK</p>
-          </MainButton>
-        </Link>
+        <MainButton to='/item/all'>GO BACK</MainButton>
       </ButtonsContainer>
     </>
   );

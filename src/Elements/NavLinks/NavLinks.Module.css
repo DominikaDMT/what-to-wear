@@ -28,3 +28,10 @@ li {
   width: 100px;
   transform: translateX(-5px);
 }
+
+
+@media (max-width: 480px) and (orientation: portrait) {
+.LinksList {
+  padding: 8%;
+}
+}

@@ -1,69 +1,68 @@
-.Description {
-  width: 70%;
+.ItemForm {
   display: flex;
-  /* padding: 0 7%; */
+  flex-wrap: wrap;
   flex-direction: column;
-  width: 190px;
+  width: 100%;
+  align-items: center;
+}
+
+.Row {
+  width: 450px;
+  margin: 10px;
+  display: flex;
+  justify-content: left;
+}
+
+.Description {
+  display: flex;
+  flex-direction: column;
+}
+
+.Description label {
+  font-size: 1.6rem;
+  padding: 3px 0;
 }
 
 .Title {
+  padding: 10px;
+  font-size: 1.8rem;
+  width: 250px;
+}
+
+.Select {
+  width: 200px;
   font-size: 1.6rem;
-  margin: 10px;
-  font-weight: bold;
-}
-
-label {
-  font-size: 1.6rem;
-  padding: 3%;
-}
-
-.AddItem {
-  background-color: rgba(166, 168, 182, 0.432);
-  font-size: 1.4rem;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  color: rgb(25, 25, 77);
-  margin: 10px 0;
-  text-align: center;
-  width: 190px;
-}
-
-select {
   outline: none;
-  background-color: #fff;
-  border: none;
-  padding: 5px 10px;
-  margin: 8px 0;
-  border: 2px solid rgba(166, 168, 182, 0.432);
-  width: 180px;
 }
 
-select:focus,
-select:hover,
-select::selection {
-  border: 2px solid rgba(166, 168, 182, 0.432);
+.PhotoContainer {
+  width: 70vw;
+  max-width: 500px;
+  height: 75vw;
+  max-height: 400px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* @media (min-width: 450px ) {
-  .Navigation div {
-    padding-top: 0.5%;
-  } 
+.PhotoContainer img {
+  height: 100%;
+}
 
-  h2 {
-    font-size: 3rem;
+@media (max-height: 1400px) {
+  .PhotoContainer {
+    max-width: none;
+    max-height: none;
+    height: 50%;
+    width: 50%;
   }
-
 }
 
-@media (min-width: 768px) {
-  .Navigation div {
-    padding-top: 0.2%;
-  } 
-
-  h2 {
-    font-size: 4rem;
+@media (max-height: 680px) {
+  .PhotoContainer {
+    height: 35%;
+    width: 35%;
+    margin: 10px;
   }
-
-
-} */
+}

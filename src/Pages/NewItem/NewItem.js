@@ -11,12 +11,13 @@ const NewItem = () => {
   return (
     <>
       <Content>
-        <div className={classes.Photo}></div>
-        <ItemForm/>
+        <ItemForm>
+          <input type="file"/>
+          </ItemForm>
       </Content>
       <ButtonsContainer>
         <MainButton>
-          <p>DODAJ DO BAZY</p>
+          ADD ITEM
         </MainButton>
       </ButtonsContainer>
     </>

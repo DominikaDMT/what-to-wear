@@ -1,24 +1,5 @@
 .Paragraph,
 .Paragraph strong {
+  margin-top: 10px;
   font-size: 2rem;
-}
-
-.Photo {
-  width: 30vh;
-  height: 18vh;
-  max-height: 300px;
-  text-align: center;
-  margin: 3%;
-}
-
-.Photo img {
-  height: 100%;
-}
-
-
-@media (min-height: 700px ) {
-  .Photo {
-    height: 28vh;
-  }
-
 }

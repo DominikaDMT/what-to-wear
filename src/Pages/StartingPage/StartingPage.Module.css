@@ -55,6 +55,11 @@
   color: #fff;
 }
 
+.RoundBtn:hover {
+  cursor: pointer;
+  background-color: rgb(17, 17, 53);
+}
+
 @media (max-width: 1200px) {
   .Logo {
     font-size: 10vw;

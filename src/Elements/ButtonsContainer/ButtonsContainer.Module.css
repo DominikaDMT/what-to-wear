@@ -1,4 +1,5 @@
 .ButtonsContainer {
+  padding: 0 5px;
   display: flex;
   justify-content: center;
   position: fixed;

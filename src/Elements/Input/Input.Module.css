@@ -1,20 +1,39 @@
 div.Input {
-  /* background-color: #ddd; */
-  width: 85%;
+  width: 50%;
+  min-width: 500px;
   max-width: 600px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  outline: none;
 }
 
 .Input input {
   width: 100%;
-  padding: 3%;
+  padding: 8px;
   font-size: 1.6rem;
 }
 
 .Input label {
-  /* margin: 3%; */
-  padding: 5% 0;
+  padding: 2% 0;
+  font-size: 1.6rem;
+}
+
+.ErrorMessage p {
+  height: 30px;
+  font-size: 1.3rem;
+  padding: 5px;
+  color: rgb(214, 61, 61);
+}
+
+@media (max-width: 768px) {
+  div.Input {
+    width: 80%;
+    min-width: auto;
+    padding: 5px;
+  }
+  .Input input {
+    padding: 4px;
+  }
 }

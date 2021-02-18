@@ -11,8 +11,9 @@ import {
 } from '../../Util/validators';
 import classes from './Auth.Module.css';
 
-import {AuthContext} from '../../context/auth-context'
+import { AuthContext } from '../../context/auth-context';
 import { Redirect, useHistory } from 'react-router-dom';
+import SecondaryButton from '../../Elements/SecondaryButton/SecondaryButton';
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -46,7 +47,6 @@ const formReducer = (state, action) => {
 };
 
 const Auth = () => {
-
   const auth = useContext(AuthContext);
 
   const [inputsValidity, dispatch] = useReducer(formReducer, {
@@ -64,34 +64,32 @@ const Auth = () => {
   };
 
   const changeMode = () => {
-    setIsRegisterMode(prevState => !prevState)
-  }
-
+    setIsRegisterMode((prevState) => !prevState);
+  };
 
   useEffect(() => {
-  if (!isRegisterMode) {
-    if (
-      inputsValidity.usernameInput.isValid &&
-      inputsValidity.passwordInput.isValid
-    ) {
-      setFormIsValid(true);
-    } else {
-      setFormIsValid(false);
+    if (!isRegisterMode) {
+      if (
+        inputsValidity.usernameInput.isValid &&
+        inputsValidity.passwordInput.isValid
+      ) {
+        setFormIsValid(true);
+      } else {
+        setFormIsValid(false);
+      }
     }
-  }
-  if (isRegisterMode) {
-    if (
-      inputsValidity.usernameInput.isValid &&
-      inputsValidity.passwordInput.isValid &&
-      inputsValidity.emailInput.isValid
-    ) {
-      setFormIsValid(true);
-    } else {
-      setFormIsValid(false);
+    if (isRegisterMode) {
+      if (
+        inputsValidity.usernameInput.isValid &&
+        inputsValidity.passwordInput.isValid &&
+        inputsValidity.emailInput.isValid
+      ) {
+        setFormIsValid(true);
+      } else {
+        setFormIsValid(false);
+      }
     }
-  }
-
-  },[inputsValidity])
+  }, [inputsValidity]);
 
   return (
     <>
@@ -129,14 +127,13 @@ const Auth = () => {
           errorText='Please enter a valid Password'
           onDispatch={dispatch}
         />
-        <button className={classes.ChangeBtn} onClick={changeMode}>{isRegisterMode ? 'Switch to log in' : 'Switch to rgister'}</button>
+        <SecondaryButton onClick={changeMode}>
+          {isRegisterMode ? 'Switch to log in form' : 'Switch to register form'}
+        </SecondaryButton>
       </Content>
       <ButtonsContainer>
-        <MainButton
-          disabled={!formIsValid}
-          onClick={loginHadler}
-        >
-          <p>{isRegisterMode ? 'Register' : 'Log in'}</p>
+        <MainButton disabled={!formIsValid} onClick={loginHadler}>
+          {isRegisterMode ? 'Register' : 'Log in'}
         </MainButton>
       </ButtonsContainer>
     </>
