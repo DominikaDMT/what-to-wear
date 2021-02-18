@@ -70,7 +70,7 @@ const Auth = () => {
   useEffect(() => {
     if (!isRegisterMode) {
       if (
-        inputsValidity.usernameInput.isValid &&
+        inputsValidity.emailInput.isValid &&
         inputsValidity.passwordInput.isValid
       ) {
         setFormIsValid(true);
@@ -94,29 +94,30 @@ const Auth = () => {
   return (
     <>
       <Content>
-        <Input
-          element='input'
-          id='username'
-          type='text'
-          placeholder='Enter user name'
-          label='Username:'
-          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(6)]}
-          errorText='Please enter a valid Username'
-          onDispatch={dispatch}
-        />
-
         {isRegisterMode && (
           <Input
             element='input'
-            id='email'
+            id='username'
             type='text'
-            placeholder='Enter e-mail'
-            label='E-mail:'
-            validators={[VALIDATOR_EMAIL()]}
-            errorText='Please enter a valid E-mail address'
+            placeholder='Enter user name'
+            label='Username:'
+            validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(6)]}
+            errorText='Please enter a valid Username'
             onDispatch={dispatch}
           />
         )}
+
+        <Input
+          element='input'
+          id='email'
+          type='text'
+          placeholder='Enter e-mail'
+          label='E-mail:'
+          validators={[VALIDATOR_EMAIL()]}
+          errorText='Please enter a valid E-mail address'
+          onDispatch={dispatch}
+        />
+
         <Input
           element='input'
           id='password'
