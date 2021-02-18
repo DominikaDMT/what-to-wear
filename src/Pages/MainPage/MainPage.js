@@ -20,7 +20,7 @@ const MainPage = () => {
         <button className={classes.SmallButton}>
           <i className='fas fa-mouse-pointer'></i>
         </button>
-        <MainButton>
+        <MainButton forwardedP={true}>
           <p>LOSUJ</p>
           <p>GOTOWY ZESTAW</p>
         </MainButton>
