@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import SecondaryButton from '../SecondaryButton/SecondaryButton';
 
 import classes from './ItemForm.Module.css';
 
 const ItemForm = (props) => {
+
+  const [selectValue, setSelectValue] = useState('')
+
+  const changeSelectValueHandler = (e) => {
+    setSelectValue(e.target.value);
+  }
+
+
   return (
     <>
       <div className={classes.PhotoContainer}> {props.children}</div>
@@ -15,11 +23,12 @@ const ItemForm = (props) => {
             className={classes.Select}
             name='colors'
             id='colors'
-            value={props.selectValue || ''}
+            value={selectValue || props.selectValue}
+            onChange={changeSelectValueHandler}
           >
             <optgroup label='Mixed'>
-              <option value='bw'>black {'&'} white</option>
               <option value='multi'>multicolor</option>
+              <option value='bw'>black {'&'} white</option>
             </optgroup>
             <optgroup label='Colors'>
               <option value='black'>black</option>
