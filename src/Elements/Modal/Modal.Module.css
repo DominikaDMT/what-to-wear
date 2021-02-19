@@ -1,0 +1,48 @@
+.ModalBg {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.Modal {
+  width: 500px;
+  min-height: 200px;
+  position: absolute;
+  top: 30%;
+  background-color: #fff;
+  padding: 20px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 110;
+  border-radius: 15px;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.281);
+}
+
+.Modal p {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .Modal {
+    width: 80%;
+  }
+}
+
+@media (max-width: 350px) {
+  .Modal {
+    width: 80%;
+
+  }
+}
