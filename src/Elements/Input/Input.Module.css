@@ -20,10 +20,13 @@ div.Input {
   font-size: 1.6rem;
 }
 
-.ErrorMessage p {
+.ErrorMessage div {
   height: 30px;
-  font-size: 1.3rem;
   padding: 5px;
+}
+
+.ErrorMessage div p {
+  font-size: 1.3rem;
   color: rgb(214, 61, 61);
 }
 

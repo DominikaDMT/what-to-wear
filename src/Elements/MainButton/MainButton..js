@@ -6,22 +6,23 @@ import classes from './MainButton.Module.css';
 const MainButton = (props) => {
   
   let buttonContent;
-  if (props.forwardedP) {
-    buttonContent = props.children
+  if (props.to) {
+    if (props.forwardedP) {
+      buttonContent = <Link to={props.to}>{props.children}</Link>
+    } else {
+      buttonContent = <Link to={props.to}><p>{props.children}</p></Link>
+    }
   } else {
-    buttonContent = <p>{props.children}</p>
+    if (props.forwardedP) {
+      buttonContent = props.children
+    } else {
+      buttonContent = <p>{props.children}</p>
+    }
   }
 
   return (
-    <button
-      className={classes.MainButton}
-      disabled={props.disabled}
-      onClick={props.onClick}
-      disabled={props.disabled}
-    >
-      <Link to={props.to}>
-        {buttonContent}
-      </Link>
+    <button className={classes.MainButton} disabled={props.disabled} onClick={props.onClick} disabled={props.disabled} >
+      {buttonContent}
     </button>
   );
 };
