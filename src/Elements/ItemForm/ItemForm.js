@@ -6,11 +6,18 @@ import classes from './ItemForm.Module.css';
 
 const ItemForm = (props) => {
 
-  const [selectValue, setSelectValue] = useState('')
+  // const [selectValue, setSelectValue] = useState('')
+  // const [radioValue, setRadioValue] = useState(0)
 
-  const changeSelectValueHandler = (e) => {
-    setSelectValue(e.target.value);
-  }
+
+
+  // const changeSelectValueHandler = (e) => {
+  //   setSelectValue(e.target.value);
+  // }
+
+  // const changeRadioValue = (e) => {
+  //   setRadioValue(e.target.value)
+  // }
 
 
   return (
@@ -23,8 +30,8 @@ const ItemForm = (props) => {
             className={classes.Select}
             name='colors'
             id='colors'
-            value={selectValue || props.selectValue}
-            onChange={changeSelectValueHandler}
+            value={props.selectValue}
+            onChange={props.changeSelectValueHandler}
           >
             <optgroup label='Mixed'>
               <option value='multi'>multicolor</option>
@@ -46,16 +53,16 @@ const ItemForm = (props) => {
         </div>
         <div className={classes.Row}>
           <p className={classes.Title}>Select type of an item:</p>
-          <div className={classes.Description}>
+          <div className={classes.Description} onChange={props.changeRadioValue}>
             <label>
-              <input type='radio' name='level1' id='' /> t-shirt / shirt /
+              <input type='radio' name='level' value={1} id='' /> t-shirt / shirt /
               blouse
             </label>
             <label>
-              <input type='radio' name='level1' id='' /> trousers / skirt
+              <input type='radio' name='level' value={2} id='' /> trousers / skirt
             </label>
             <label>
-              <input type='radio' name='level1' id='' /> shoes
+              <input type='radio' name='level' value={3} id='' /> shoes
             </label>
           </div>
         </div>

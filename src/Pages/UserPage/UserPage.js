@@ -1,31 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import Content from '../../Elements/Content/Content';
-
+import Modal from '../../Elements/Modal/Modal';
+import { useHttpClient } from '../../Util/http-hook';
+import { AuthContext} from '../../context/auth-context'
 import classes from './UserPage.Module.css';
 
 const UserPage = () => {
 
-  const USER = {
-    id: 123,
-    name: 'Użytkownik1', 
-    email: 'user1@test.com',
-    image: 'https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg',
-    amountOfClothes: 5
-  }
+  const [userProfile, setUserProfile] = useState({});
+  const {isLoading, error, sendRequest, resetError} = useHttpClient();
+  const auth = useContext(AuthContext);
+
+  useEffect(() => {
+    // nie ustawiać funkcji w useEffect jako asynchronicznej, tylko użyć IIFE
+    const fetchUser = async () => {
+      console.log(auth.userId);
+      try {
+        const responseData = await sendRequest(`http://localhost:5000/api/user/profile/${auth.userId}`);
+        setUserProfile({
+          id: responseData.user.id,
+          name: responseData.user.name,
+          email: responseData.user.email,
+          image: responseData.user.image,
+          clothes: responseData.user.clothes.length
+        });
+        console.log(responseData);
+      } catch (err) {}
+    };
+    fetchUser();
+  }, [sendRequest]);
 
   return (
     <>
-      <Content>
+      {error && <Modal closeModal={resetError}>{error}</Modal>}
+      {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
+      {!isLoading && userProfile && <Content>
         <div className={classes.ProfilePicture}>
-          <img src={USER.image} alt={USER.name}/>
+          <img src={userProfile.image} alt={userProfile.name} />
         </div>
         <div className={classes.Info}>
-        <p className={classes.Name}>Nazwa: <strong>{USER.name}</strong></p>
-        <p className={classes.Name}>E-mail: <strong>{USER.email}</strong> </p>
-        <p className={classes.Name}>Liczba ubrań: <strong>{USER.amountOfClothes}</strong> </p>
+          <p className={classes.Name}>
+            Nazwa: <strong>{userProfile.name}</strong>
+          </p>
+          <p className={classes.Name}>
+            E-mail: <strong>{userProfile.email}</strong>{' '}
+          </p>
+          <p className={classes.Name}>
+            Liczba ubrań: <strong>{userProfile.clothes}</strong>{' '}
+          </p>
         </div>
-      </Content>
+      </Content>}
     </>
   );
 };
