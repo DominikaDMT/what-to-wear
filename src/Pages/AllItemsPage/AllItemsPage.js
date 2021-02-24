@@ -1,109 +1,66 @@
-import React from 'react';
-import Content from '../../Elements/Content/Content';
+import React, { useContext, useEffect, useState } from 'react';
 
-import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
+import ItemThumbnail from '../ItemThumbnail/ItemThumbnail';
+import MainButton from '../../Elements/MainButton/MainButton.';
+import { useHttpClient } from '../../Util/http-hook';
+import Modal from '../../Elements/Modal/Modal';
+import LoadingSpinner from '../../Elements/LoadingSpinner/LoadingSpinner';
+import { AuthContext } from '../../context/auth-context';
 
 import classes from './AllItemsPage.Module.css';
-import MainButton from '../../Elements/MainButton/MainButton.';
-import ItemThumbnail from '../ItemThumbnail/ItemThumbnail';
+import Layout from '../../Elements/Layout/Layout';
 
 const AllItemsPage = () => {
+  const [loadedItems, setLoadedItems] = useState();
+  const { isLoading, error, sendRequest, resetError } = useHttpClient();
+  const auth = useContext(AuthContext);
 
+  const userId = auth.userId;
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:5000/api/clothes/all/${userId}`
+        );
+        setLoadedItems(responseData.allItems);
+      } catch (err) {}
+    };
+    fetchItems();
+    console.log(loadedItems);
+  }, [sendRequest, userId]);
 
-  const ITEMS = [{
-    id: 1,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 2,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 3,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 4,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 5,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 6,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 7,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 8,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 9,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 10,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 11,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 12,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 13,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 14,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },{
-    id: 15,
-    name: 'bluzka',
-    color: 'czarna',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZQPPICAGwol8jtic7wP8f_dh7Z5CK57jMtUCUT4_zpfHmPtZAvsam3pXhp9FWv1edVkDx3E&usqp=CAc'
-  },
-]
-
-const itemsList = ITEMS.map(item => <ItemThumbnail key= {item.id} id={item.id} name={item.name} color={item.color} image={item.image}/> )
-
+  let itemsList;
+  useEffect(() => {
+    if (loadedItems) {
+      itemsList = loadedItems.map((item) => (
+        <ItemThumbnail
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          color={item.color}
+          image={item.image}
+        />
+      ));
+    }
+  });
 
   return (
-    <>
-      <Content>
-        <div className={classes.Container}>
-          {itemsList}
-        </div>
-      </Content>
-      <ButtonsContainer>
-        <MainButton to='/item/new'>
-          ADD NEW ITEM
-        </MainButton>
-      </ButtonsContainer>
-    </>
+    <Layout buttons={<MainButton to='/item/new'>ADD NEW ITEM</MainButton>}>
+      {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
+      <div className={classes.Container}>
+        {!isLoading &&
+          loadedItems &&
+          loadedItems.map((item) => (
+            <ItemThumbnail
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              color={item.color}
+              image={item.image}
+            />
+          ))}
+      </div>
+    </Layout>
   );
 };
 

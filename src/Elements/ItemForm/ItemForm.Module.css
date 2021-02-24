@@ -8,7 +8,7 @@
 
 .Row {
   width: 450px;
-  margin: 10px;
+  margin: 7px;
   display: flex;
   justify-content: left;
 }
@@ -24,13 +24,13 @@
 }
 
 .Title {
-  padding: 10px;
+  padding: 10px 10px 10px 0;
   font-size: 1.8rem;
   width: 250px;
 }
 
 .Select {
-  width: 200px;
+  width: 190px;
   font-size: 1.6rem;
   outline: none;
 }
@@ -50,11 +50,12 @@
   height: 100%;
 }
 
-@media (max-height: 1400px) {
+
+/* @media (max-height: 1400px) {
   .PhotoContainer {
     max-width: none;
     max-height: none;
-    height: 50%;
+    height: 45%;
     width: 50%;
   }
 }
@@ -65,4 +66,46 @@
     width: 35%;
     margin: 10px;
   }
+
+  .Description label,
+  .Title,
+  .Select,
+  .Paragraph {
+    font-size: 1.5rem;
+  }
 }
+
+@media (max-width: 576px) {
+  .Row {
+    margin-left: 3px;
+    width: auto;
+  }
+
+  .Title {
+    width: 210px;
+  }
+
+  .ItemForm {
+  }
+
+  .PhotoContainer {
+    height: 40%;
+  }
+}
+
+@media (max-width: 520px) {
+  .Row {
+    flex-direction: column;
+    width: 190px;
+    margin-left: 10px;
+    margin: 5px;
+  }
+
+  .PhotoContainer {
+    height: 35%;
+  }
+
+  .Title {
+    width: 210px;
+  }
+}  */

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
-import Content from '../../Elements/Content/Content';
 import ItemForm from '../../Elements/ItemForm/ItemForm';
+import Layout from '../../Elements/Layout/Layout';
 import MainButton from '../../Elements/MainButton/MainButton.';
+import { useHttpClient } from '../../Util/http-hook';
 
 import classes from './EditItem.Module.css';
 
@@ -47,23 +47,34 @@ const ITEMS = [
 ];
 
 const EditItem = () => {
-  const itemId = +useParams().itemid;
-  const editedItem = ITEMS.find((item) => item.id === itemId);
+  const itemId = useParams().itemid;
+  // const editedItem = ITEMS.find((item) => item.id === itemId);
+  const [item, setItem] = useState();
+  const { isLoading, error, sendRequest, resetError } = useHttpClient();
+
+  useEffect(() => {
+    const fetchItem = async () => {
+      try {
+        const item = await sendRequest(
+          `http://localhost:5000/api/clothes/item/${itemId}`
+        );
+        setItem(item.item);
+      } catch (err) {}
+    };
+    fetchItem();
+  }, []);
 
   return (
-    <>
-      <Content>
-        <p className={classes.Paragraph}>
-          Update item <strong>{itemId}</strong>
-        </p>
-        <ItemForm selectValue={editedItem.color}>
-          <img src={editedItem.image} alt={editedItem.name} />
-        </ItemForm>
-      </Content>
-      <ButtonsContainer>
-        <MainButton to='/item/all'>GO BACK</MainButton>
-      </ButtonsContainer>
-    </>
+    <Layout buttons={<MainButton to='/item/all'>GO BACK</MainButton>}>
+      {item && (
+        <>
+          <p className={classes.Paragraph}>Update item</p>
+          <ItemForm selectValue={item.color} setRadioValue={item.level}>
+            <img src={item.image} alt={item.name} />
+          </ItemForm>
+        </>
+      )}
+    </Layout>
   );
 };
 

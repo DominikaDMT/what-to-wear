@@ -27,7 +27,7 @@
   letter-spacing: 2px;
 }
 
-@media (max-width: 310px) {
+@media (max-width: 320px) {
   .MainButton p {
     font-size: 1.2rem;
   }
