@@ -129,7 +129,7 @@ const Auth = () => {
       <Layout
         buttons={
           <MainButton disabled={!formIsValid} onClick={authSubmitHandler}>
-            {isRegisterMode ? 'Register' : 'Log in'}
+            {isRegisterMode ? 'REGISTER' : 'LOG IN'}
           </MainButton>
         }
       >

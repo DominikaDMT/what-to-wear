@@ -8,10 +8,8 @@ import {
 
 import AllItemsPage from './Pages/AllItemsPage/AllItemsPage';
 import Auth from './Pages/Auth/Auth';
-import EditItem from './Pages/EditItem/EditItem';
 import ItemPage from './Pages/ItemPage/ItemPage';
 import MainPage from './Pages/MainPage/MainPage';
-import NavBar from './Elements/NavBar/NavBar';
 import NewItem from './Pages/NewItem/NewItem';
 import StartingPage from './Pages/StartingPage/StartingPage';
 import UserPage from './Pages/UserPage/UserPage';
@@ -46,7 +44,6 @@ function App() {
           <Route path='/user' component={UserPage} />
           <Route path='/item/all' component={AllItemsPage} />
           <Route path='/item/new' component={NewItem} />
-          <Route path='/item/edit/:itemid' component={EditItem} />
           <Route path='/item/:itemid' component={ItemPage} />
           <Redirect to='/mainPage' />
         </Switch>

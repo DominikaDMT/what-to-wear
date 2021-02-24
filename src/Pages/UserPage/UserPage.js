@@ -14,7 +14,6 @@ const UserPage = () => {
   useEffect(() => {
     // nie ustawiać funkcji w useEffect jako asynchronicznej, tylko użyć IIFE
     const fetchUser = async () => {
-      console.log(auth.userId);
       try {
         const responseData = await sendRequest(
           `http://localhost:5000/api/user/profile/${auth.userId}`
@@ -26,7 +25,6 @@ const UserPage = () => {
           image: responseData.user.image,
           clothes: responseData.user.clothes.length,
         });
-        console.log(responseData);
       } catch (err) {}
     };
     fetchUser();

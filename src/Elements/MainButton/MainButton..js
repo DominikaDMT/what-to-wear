@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 import classes from './MainButton.Module.css';
 
@@ -21,9 +22,12 @@ const MainButton = (props) => {
   }
 
   return (
-    <button className={classes.MainButton} disabled={props.disabled} onClick={props.onClick} disabled={props.disabled} >
+    <button className={classes.MainButton} disabled={props.disabled} onClick={props.onClick} >
       {buttonContent}
     </button>
+    // <Button variant="contained" color="primary" disabled={props.disabled} onClick={props.onClick} className={classes.MainButton}>
+    //   {buttonContent}
+    // </Button>
   );
 };
 

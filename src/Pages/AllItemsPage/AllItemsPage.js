@@ -26,7 +26,6 @@ const AllItemsPage = () => {
       } catch (err) {}
     };
     fetchItems();
-    console.log(loadedItems);
   }, [sendRequest, userId]);
 
   let itemsList;
