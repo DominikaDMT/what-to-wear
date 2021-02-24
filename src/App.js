@@ -39,51 +39,37 @@ function App() {
 
   if (isLoggedIn) {
     routes = (
-      <Switch>
-        <Route path='/' exact component={StartingPage} />
-        <Route path='/mainPage'>
-          <NavBar />
-          <MainPage />
-        </Route>
-        <Route path='/user'>
-          <NavBar />
-          <UserPage />
-        </Route>
-        <Route path='/item/all'>
-          <NavBar />
-          <AllItemsPage />
-        </Route>
-        <Route path='/item/new'>
-          <NavBar />
-          <NewItem />
-        </Route>
-        <Route path='/item/edit/:itemid'>
-          <NavBar />
-          <EditItem />
-        </Route>
-        <Route path='/item/:itemid'>
-          <NavBar />
-          <ItemPage />
-        </Route>
-        <Redirect to='/mainPage' />
-      </Switch>
+      <>
+        <Route path='/' exact component={MainPage} />
+        <Switch>
+          <Route path='/mainPage' component={MainPage} />
+          <Route path='/user' component={UserPage} />
+          <Route path='/item/all' component={AllItemsPage} />
+          <Route path='/item/new' component={NewItem} />
+          <Route path='/item/edit/:itemid' component={EditItem} />
+          <Route path='/item/:itemid' component={ItemPage} />
+          <Redirect to='/mainPage' />
+        </Switch>
+      </>
     );
   } else {
     routes = (
       <Switch>
         <Route path='/' exact component={StartingPage} />
-        <Route path='/auth'>
-          <NavBar />
-          <Auth />
-        </Route>
-        <Redirect to='/auth' />
+        <Route path='/auth' component={Auth}/>
+        <Redirect to='/' />
       </Switch>
     );
   }
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn, userId: userId, login: login, logout: logout }}
+      value={{
+        isLoggedIn: isLoggedIn,
+        userId: userId,
+        login: login,
+        logout: logout,
+      }}
     >
       <Router>{routes}</Router>
     </AuthContext.Provider>

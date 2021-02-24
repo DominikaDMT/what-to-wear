@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
-import ButtonsContainer from '../../Elements/ButtonsContainer/ButtonsContainer';
-import Content from '../../Elements/Content/Content';
 import Input from '../../Elements/Input/Input';
 import MainButton from '../../Elements/MainButton/MainButton.';
 
@@ -17,6 +15,7 @@ import SecondaryButton from '../../Elements/SecondaryButton/SecondaryButton';
 import LoadingSpinner from '../../Elements/LoadingSpinner/LoadingSpinner';
 import Modal from '../../Elements/Modal/Modal';
 import { useHttpClient } from '../../Util/http-hook';
+import Layout from '../../Elements/Layout/Layout';
 
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -60,31 +59,37 @@ const Auth = () => {
 
   const [formIsValid, setFormIsValid] = useState(false);
   const [isRegisterMode, setIsRegisterMode] = useState(false);
-  const {isLoading, error, sendRequest, resetError} = useHttpClient();
-
+  const { isLoading, error, sendRequest, resetError } = useHttpClient();
 
   const authSubmitHandler = async () => {
-
     if (isRegisterMode) {
       try {
-        const responseData = await sendRequest('http://localhost:5000/api/user/signup', 'POST', JSON.stringify({
-          name: inputsValidity.usernameInput.value,
-          email: inputsValidity.emailInput.value,
-          password: inputsValidity.passwordInput.value,
-        }), {'Content-Type': 'application/json'});
+        const responseData = await sendRequest(
+          'http://localhost:5000/api/user/signup',
+          'POST',
+          JSON.stringify({
+            name: inputsValidity.usernameInput.value,
+            email: inputsValidity.emailInput.value,
+            password: inputsValidity.passwordInput.value,
+          }),
+          { 'Content-Type': 'application/json' }
+        );
 
         auth.login(responseData.user.id);
-
       } catch (err) {
         // nie musi tu być nic, bo error jest ogarnięty w custom hooku
       }
-
     } else {
       try {
-        const responseData = await sendRequest('http://localhost:5000/api/user/login', 'POST', JSON.stringify({
-          email: inputsValidity.emailInput.value,
-          password: inputsValidity.passwordInput.value,
-        }), {'Content-Type': 'application/json'});
+        const responseData = await sendRequest(
+          'http://localhost:5000/api/user/login',
+          'POST',
+          JSON.stringify({
+            email: inputsValidity.emailInput.value,
+            password: inputsValidity.passwordInput.value,
+          }),
+          { 'Content-Type': 'application/json' }
+        );
 
         auth.login(responseData.user.id);
       } catch (err) {}
@@ -121,9 +126,15 @@ const Auth = () => {
 
   return (
     <>
-      {error && <Modal closeModal={resetError}>{error}</Modal>}
-      <Content>
-      {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
+      <Layout
+        buttons={
+          <MainButton disabled={!formIsValid} onClick={authSubmitHandler}>
+            {isRegisterMode ? 'Register' : 'Log in'}
+          </MainButton>
+        }
+      >
+        {error && <Modal closeModal={resetError}>{error}</Modal>}
+        {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
         {isRegisterMode && (
           <Input
             element='input'
@@ -161,12 +172,7 @@ const Auth = () => {
         <SecondaryButton onClick={changeMode}>
           {isRegisterMode ? 'Switch to log in form' : 'Switch to register form'}
         </SecondaryButton>
-      </Content>
-      <ButtonsContainer>
-        <MainButton disabled={!formIsValid} onClick={authSubmitHandler}>
-          {isRegisterMode ? 'Register' : 'Log in'}
-        </MainButton>
-      </ButtonsContainer>
+      </Layout>
     </>
   );
 };

@@ -1,0 +1,35 @@
+.Layout {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.Nav {
+  width: 100%;
+  height: max(10%, 80px);
+}
+
+.Content {
+  flex-grow: 1;
+  padding: 3%;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ButtonsContainer {
+  width: 100%;
+  height: 70px;
+  padding: 0 5px;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+}
