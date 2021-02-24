@@ -42,7 +42,7 @@ const NewItem = () => {
     <Layout buttons={<MainButton onClick={addNewItem} disabled={!(state.color, state.level)}>ADD ITEM</MainButton>}>
       {error && <Modal closeModal={resetError}>{error}</Modal>}
       {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
-      <ItemForm item={state} dispatch={dispatch}>
+      <ItemForm item={state} dispatch={dispatch} creating={true}>
         <input type='file' />
       </ItemForm>
     </Layout>

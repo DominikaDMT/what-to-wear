@@ -58,6 +58,7 @@ const AllItemsPage = () => {
               image={item.image}
             />
           ))}
+          {!isLoading && !loadedItems && <p>Add items to your collection</p> }
       </div>
     </Layout>
   );

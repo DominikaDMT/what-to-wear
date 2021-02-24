@@ -101,9 +101,21 @@ const ItemForm = (props) => {
             }
           />
         </div>
+        {props.creating && <div className={ownClasses.DescriptionContainer}>
+          <TextField
+            id='outlined-basic'
+            label='URL'
+            variant='outlined'
+            style={{ width: '100%' }}
+            value={props.item.image}
+            onChange={(e) =>
+              props.dispatch({ type: 'image', payload: e.target.value })
+            }
+          />
+        </div>}
 
-        <RadioGroup aria-label="level" name="level" value={props.item.level} onChange={(e) =>
-              props.dispatch({ type: 'level', payload: e.target.value })} checked={props.item.value}>
+        <RadioGroup aria-label="level" name="level" value={`${props.item.level}`} onChange={(e) =>
+              props.dispatch({ type: 'level', payload: e.target.value })} >
         <FormControlLabel value='1' control={<Radio />} label='t-shirt / shirt /
               blouse' />
         <FormControlLabel value='2' control={<Radio />} label='trousers / skirt' />

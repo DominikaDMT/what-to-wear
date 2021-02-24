@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import { AuthContext } from '../../context/auth-context';
 
 import ItemForm from '../../Elements/ItemForm/ItemForm';
 import Layout from '../../Elements/Layout/Layout';
+import LoadingSpinner from '../../Elements/LoadingSpinner/LoadingSpinner';
 import MainButton from '../../Elements/MainButton/MainButton.';
+import Modal from '../../Elements/Modal/Modal';
 import SecondaryButton from '../../Elements/SecondaryButton/SecondaryButton';
 import useFormReducer from '../../Util/form-hook';
 import { useHttpClient } from '../../Util/http-hook';
@@ -15,25 +18,28 @@ const ItemPage = (props) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [state, dispatch] = useFormReducer();
   const { isLoading, error, sendRequest, resetError } = useHttpClient();
+  const history = useHistory();
+  const auth = useContext(AuthContext);
 
   const itemId = useParams().itemid;
-
   useEffect(() => {
     const fetchItem = async () => {
       if (fetchingitem) {
         try {
-          const item = await sendRequest(
+          const data = await sendRequest(
             `http://localhost:5000/api/clothes/item/${itemId}`
           );
+          const item = data.item;
           dispatch({
             type: 'state',
             payload: {
-              id: item.item.id,
-              color: item.item.color,
-              brand: item.item.brand,
-              name: item.item.name,
-              level: item.item.level,
-              image: item.item.image,
+              id: item.id,
+              color: item.color,
+              brand: item.brand,
+              name: item.name,
+              level: item.level,
+              image: item.image,
+              creator: item.creator,
             },
           });
         } catch (err) {}
@@ -41,10 +47,34 @@ const ItemPage = (props) => {
       setFetchingitem(false);
     };
     fetchItem();
-  }, []);
+  }, [sendRequest, itemId]);
 
-  const switchToEditMode = () => {
+  const switchToEditModeHandler = () => {
     setIsEditMode(true);
+  };
+
+  const saveChangesHandler = async () => {
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/clothes/item/${itemId}`,
+        'PATCH',
+        JSON.stringify({
+          ...state,
+        }),
+        { 'Content-Type': 'application/json' }
+      );
+      history.push('/item/all');
+    } catch (err) {}
+  };
+
+  const deleteItemHandler = async () => {
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/clothes/item/${itemId}`,
+        'DELETE'
+      );
+      history.push('/item/all');
+    } catch (err) {}
   };
 
   let content;
@@ -65,19 +95,42 @@ const ItemPage = (props) => {
         </div>
         <div className={classes.Info}>
           <p className={classes.Name}>
-            Name: <strong>{state.name}</strong>
+            Description: <strong>{state.name}</strong>
+          </p>
+          <p className={classes.Name}>
+            Brand: <strong>{state.brand}</strong>
           </p>
           <p className={classes.Name}>
             Color: <strong>{state.color}</strong>
           </p>
         </div>
-        <SecondaryButton onClick={switchToEditMode}>Edit item</SecondaryButton>
+
+        {state.creator === auth.userId && (
+          <>
+            <SecondaryButton onClick={switchToEditModeHandler}>
+              Edit item
+            </SecondaryButton>
+            <SecondaryButton onClick={deleteItemHandler}>
+              Delete item
+            </SecondaryButton>
+          </>
+        )}
       </>
     );
   }
 
+  let buttons;
+  if (state && isEditMode) {
+    buttons = (
+      <MainButton onClick={saveChangesHandler}>SAVE CHANGES</MainButton>
+    );
+  } else if (state && !isEditMode) {
+    buttons = <MainButton to='/item/all'>GO BACK</MainButton>;
+  }
+
   return (
-    <Layout buttons={<MainButton to='/item/all'>GO BACK</MainButton>}>
+    <Layout buttons={buttons}>
+      {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
       {content}
     </Layout>
   );
