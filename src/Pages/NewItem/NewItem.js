@@ -1,29 +1,21 @@
-import React, { useState, useContext } from 'react';
+import React, {useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import ItemForm from '../../Elements/ItemForm/ItemForm';
-import MainButton from '../../Elements/MainButton/MainButton.';
-import { useHttpClient } from '../../Util/http-hook';
-import Modal from '../../Elements/Modal/Modal';
+import Layout from '../../Elements/Layout/Layout';
 import LoadingSpinner from '../../Elements/LoadingSpinner/LoadingSpinner';
+import MainButton from '../../Elements/MainButton/MainButton.';
+import Modal from '../../Elements/Modal/Modal';
 
 import { AuthContext } from '../../context/auth-context';
+import { useHttpClient } from '../../Util/http-hook';
+import useFormReducer from '../../Util/form-hook';
 
-import classes from './NewItem.Module.css';
-import Layout from '../../Elements/Layout/Layout';
 
 const NewItem = () => {
-  const [selectValue, setSelectValue] = useState('');
-  const [radioValue, setRadioValue] = useState(0);
   const auth = useContext(AuthContext);
+  const [state, dispatch] = useFormReducer();
   const { isLoading, error, sendRequest, resetError } = useHttpClient();
-
-  const changeSelectValueHandler = (e) => {
-    setSelectValue(e.target.value);
-  };
-  const changeRadioValue = (e) => {
-    setRadioValue(e.target.value);
-  };
 
   const history = useHistory();
 
@@ -33,11 +25,11 @@ const NewItem = () => {
         'http://localhost:5000/api/clothes/newitem',
         'POST',
         JSON.stringify({
-          name: 'there will be an name',
-          image: 'there will be an image',
-          color: selectValue,
-          level: radioValue,
-          brand: 'there will be a brand name',
+          name: state.name,
+          image: state.image,
+          color: state.color,
+          level: state.level,
+          brand: state.brand,
           creator: auth.userId,
         }),
         { 'Content-Type': 'application/json' }
@@ -47,23 +39,10 @@ const NewItem = () => {
   };
 
   return (
-    <Layout
-      buttons={
-        <MainButton
-          onClick={addNewItem}
-          disabled={!(selectValue && radioValue)}
-        >
-          ADD ITEM
-        </MainButton>
-      }
-    >
+    <Layout buttons={<MainButton onClick={addNewItem} disabled={!(state.color, state.level)}>ADD ITEM</MainButton>}>
       {error && <Modal closeModal={resetError}>{error}</Modal>}
       {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
-      <ItemForm
-        changeSelectValueHandler={changeSelectValueHandler}
-        changeRadioValue={changeRadioValue}
-        selectValue={selectValue}
-      >
+      <ItemForm item={state} dispatch={dispatch}>
         <input type='file' />
       </ItemForm>
     </Layout>
