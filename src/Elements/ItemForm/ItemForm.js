@@ -1,84 +1,117 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Select from '@material-ui/core/Select';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 
 import SecondaryButton from '../SecondaryButton/SecondaryButton';
 
-import classes from './ItemForm.Module.css';
+import ownClasses from './ItemForm.Module.css';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '90%',
+    },
+  },
+}));
 
 const ItemForm = (props) => {
-
-  
-
-  const [selectValue, setSelectValue] = useState(props.selectValue)
-  const [radioValue, setRadioValue] = useState(props.setRadioValue)
-
-
-
-  const changeSelectValueHandler = (e) => {
-    setSelectValue(e.target.value);
-  }
-
-  const changeRadioValue = (e) => {
-    setRadioValue(e.target.value)
-  }
-
+  const classes = useStyles();
 
   return (
     <>
-      <div className={classes.PhotoContainer}> {props.children}</div>
-      <form className={classes.ItemForm}>
-      <div className={classes.Row}>
-        <p className={classes.Title}>Brand name:</p>
-        <input type="text"/>
-        </div>
-        <div className={classes.Row}>
-        <p className={classes.Title}>Description:</p>
-        <input type="text"/>
-        </div>
-        <div className={classes.Row}>
-          <p className={classes.Title}>Color of an item:</p>
-          <select
-            className={classes.Select}
-            name='colors'
-            id='colors'
-            value={selectValue}
-            onChange={changeSelectValueHandler}
+      {/* <div className={classes.PhotoContainer}> {props.children}</div> */}
+      <form
+        className={classes.root}
+        noValidate
+        autoComplete='off'
+        style={{
+          width: '80%',
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <div className={ownClasses.DescriptionContainer}>
+          <FormControl
+            variant='outlined'
+            className={classes.formControl}
+            style={{ width: '48%' }}
           >
-            <optgroup label='Mixed'>
-              <option value='multi'>multicolor</option>
-              <option value='bw'>black {'&'} white</option>
-            </optgroup>
-            <optgroup label='Colors'>
-              <option value='black'>black</option>
-              <option value='gray'>gray</option>
-              <option value='white'>white</option>
-              <option value='red'>red</option>
-              <option value='blue'>blue</option>
-              <option value='green'>green</option>
-              <option value='yellow'>yellow</option>
-              <option value='orange'>orange</option>
-              <option value='pink'>pink</option>
-              <option value='beige'>beige</option>
-            </optgroup>
-          </select>
+            <InputLabel id='demo-simple-select-outlined-label'>
+              Color
+            </InputLabel>
+            <Select
+              labelId='demo-simple-select-outlined-label'
+              id='demo-simple-select-outlined'
+              value={props.item.color}
+              onChange={(e) =>
+                props.dispatch({ type: 'color', payload: e.target.value })
+              }
+              label='Color'
+            >
+              {/* <MenuItem value=''>
+              <em>None</em>
+            </MenuItem> */}
+              <MenuItem value='multi'>multicolor</MenuItem>
+              <MenuItem value='bw'>black {'&'} white</MenuItem>
+              <MenuItem value='black'>black</MenuItem>
+              <MenuItem value='gray'>gray</MenuItem>
+              <MenuItem value='white'>white</MenuItem>
+              <MenuItem value='red'>red</MenuItem>
+              <MenuItem value='blue'>blue</MenuItem>
+              <MenuItem value='green'>green</MenuItem>
+              <MenuItem value='yellow'>yellow</MenuItem>
+              <MenuItem value='orange'>orange</MenuItem>
+              <MenuItem value='pink'>pink</MenuItem>
+              <MenuItem value='beige'>beige</MenuItem>
+            </Select>
+          </FormControl>
+
+          <TextField
+            id='outlined-basic'
+            label='Brand'
+            variant='outlined'
+            style={{ width: '48%' }}
+            value={props.item.brand}
+            onChange={(e) =>
+              props.dispatch({ type: 'brand', payload: e.target.value })
+            }
+          />
         </div>
-        <div className={classes.Row}>
-          <p className={classes.Title}>Type of an item:</p>
-          <div className={classes.Description} onChange={changeRadioValue} value={radioValue}>
-            <label>
-              <input type='radio' name='level' value={1} id='' /> t-shirt / shirt /
-              blouse
-            </label>
-            <label>
-              <input type='radio' name='level' value={2} id='' /> trousers / skirt
-            </label>
-            <label>
-              <input type='radio' name='level' value={3} id='' /> shoes
-            </label>
-          </div>
+        <div className={ownClasses.DescriptionContainer}>
+          <TextField
+            id='outlined-basic'
+            label='Description'
+            variant='outlined'
+            style={{ width: '100%' }}
+            value={props.item.name}
+            onChange={(e) =>
+              props.dispatch({ type: 'description', payload: e.target.value })
+            }
+          />
         </div>
-        
-        <SecondaryButton>Select matching outfits</SecondaryButton>
+
+        <RadioGroup aria-label="level" name="level" value={props.item.level} onChange={(e) =>
+              props.dispatch({ type: 'level', payload: e.target.value })} checked={props.item.value}>
+        <FormControlLabel value='1' control={<Radio />} label='t-shirt / shirt /
+              blouse' />
+        <FormControlLabel value='2' control={<Radio />} label='trousers / skirt' />
+        <FormControlLabel value='3' control={<Radio />} label='shoes' />
+      </RadioGroup>
+
       </form>
+      <SecondaryButton>Select matching outfits</SecondaryButton>
     </>
   );
 };
