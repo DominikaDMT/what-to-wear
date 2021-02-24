@@ -23,12 +23,12 @@
 }
 
 .MainButton p {
-  font-size: 1.6rem;
+  font-size: 1rem;
   letter-spacing: 2px;
 }
 
 @media (max-width: 320px) {
   .MainButton p {
-    font-size: 1.2rem;
+    font-size: 12px;
   }
 }

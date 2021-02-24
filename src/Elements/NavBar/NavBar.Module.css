@@ -22,14 +22,14 @@
 .Hamburger i {
   padding: 5px;
   color: rgba(25, 25, 77, 0.342);
-  font-size: 3rem;
+  font-size: 30px;
 }
 
 .Logo {
   font-family: 'Pacifico', cursive;
   color: rgb(25, 25, 77);
   padding: 15px;
-  font-size: 4rem;
+  font-size: 40px;
   font-weight: normal;
 }
 
@@ -38,13 +38,13 @@
     padding: 15px;
   }
   .Logo {
-    font-size: 3rem;
+    font-size: 30px;
     padding: 10px;
   }
 }
 @media (max-width: 360px) {
   .Logo {
-    font-size: 2.5rem;
+    font-size: 25px;
     padding: 5px;
   }
 }

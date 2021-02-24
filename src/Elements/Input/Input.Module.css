@@ -12,12 +12,12 @@ div.Input {
 .Input input {
   width: 100%;
   padding: 8px;
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 .Input label {
   padding: 2% 0;
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 .ErrorMessage div {
@@ -26,7 +26,7 @@ div.Input {
 }
 
 .ErrorMessage div p {
-  font-size: 1.3rem;
+  font-size: 13px;
   color: rgb(214, 61, 61);
 }
 

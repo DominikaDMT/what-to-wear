@@ -15,20 +15,20 @@
 }
 
 .Name {
-  font-size: 1.6rem;
+  font-size: 1rem;
   margin: 3%;
   width: 100%;
   text-align: center;
 }
 
 .Name, .Name strong {
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 
 .EditItem {
   background-color: rgba(166, 168, 182, 0.432);
-  font-size: 1.6rem;
+  font-size: 1rem;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -38,11 +38,17 @@
 }
 
 .EditItem a {
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: black
 
 }
 
 .Info p {
   margin: 15px 0;
+}
+
+.Paragraph {
+  padding-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 5px;
 }

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 1rem;
   padding: 15%;
 }
 
@@ -12,13 +12,13 @@ li {
 }
 
 .LinksList li a {
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: #000;
 }
 
 .LogoutBtn {
   background-color: rgba(60, 60, 128, 0.582);
-  font-size: 1.4rem;
+  font-size: 14px;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;

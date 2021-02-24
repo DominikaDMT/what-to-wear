@@ -25,7 +25,7 @@
 
 .Hint p {
   padding: 10px;
-  font-size: 1.8rem;
+  font-size: 18px;
   letter-spacing: 4px;
 }
 
@@ -35,7 +35,7 @@
 
 .Hint p i {
   margin-right: 5px;
-  font-size: 1.8rem;
+  font-size: 18px;
 }
 
 .RoundBtn {
@@ -51,7 +51,7 @@
 
 .RoundBtn i {
   padding-top: 2px;
-  font-size: 3rem;
+  font-size: 30px;
   color: #fff;
 }
 
@@ -86,7 +86,7 @@
   }
   .Hint p,
   .Hint p i {
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
 
   .Hint p {
