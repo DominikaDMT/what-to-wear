@@ -1,0 +1,63 @@
+.ImageContainer {
+  width: 300px;
+  position: relative;
+  margin: 10px;
+}
+
+.ImagePreview {
+  height: 30vh;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  overflow: hidden
+}
+
+.ImagePreview img {
+  height: 100%;
+}
+
+.ImagePreview i {
+  font-size: 40px;
+  color: #fff;
+}
+
+.btnRound {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -30%);
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  background-color: #8E8EB5;
+}
+
+.btnRound:hover {
+  cursor: pointer;
+  background-color: #7F7F97;
+}
+
+@media (max-height: 750px) {
+  .ImagePreview {
+    height: 17vh;
+  }
+}
+
+@media (max-height: 580px) {
+  .ImagePreview {
+    height: 10vh;
+  }
+}
+
+@media (max-width: 450px) {
+  .ImageContainer {
+    width: 30vh;
+
+  }
+}

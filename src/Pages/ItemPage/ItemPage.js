@@ -39,6 +39,7 @@ const ItemPage = (props) => {
               name: item.name,
               level: item.level,
               image: item.image,
+              imageURL: item.imageURL,
               creator: item.creator,
             },
           });
@@ -79,20 +80,30 @@ const ItemPage = (props) => {
 
   let content;
   if (state && isEditMode) {
+
     content = (
       <>
         <p className={classes.Paragraph}>Update item</p>
         <ItemForm item={state} dispatch={dispatch}>
-          <img src={state.image} alt={state.name} />
+          {/* ZAMMIENIĆ NA STATE.IMAGEURL */}
+          <div className={classes.ImagePreview} 
+          style={state.image ? {backgroundImage: "url('" + state.image + "')"} : {}}>
+            {/* {state.image && <img src={state.image} alt={state.name} />} */}
+          </div>
         </ItemForm>
       </>
     );
+
   } else if (state && !isEditMode) {
+
     content = (
       <>
-        <div className={classes.ItemPicture}>
-          <img src={state.image} alt={state.name} />
+          {/* ZAMMIENIĆ NA STATE.IMAGEURL */}
+        <div className={classes.ImagePreviewNoEditMode} 
+        style={state.image ? {backgroundImage: "url('" + state.image + "')"} : {}}>
+          {/* {state.image && <img src={state.image} alt={state.name} />} */}
         </div>
+
         <div className={classes.Info}>
           <p className={classes.Name}>
             Description: <strong>{state.name}</strong>
@@ -104,7 +115,6 @@ const ItemPage = (props) => {
             Color: <strong>{state.color}</strong>
           </p>
         </div>
-
         {state.creator === auth.userId && (
           <>
             <SecondaryButton onClick={switchToEditModeHandler}>
@@ -119,13 +129,14 @@ const ItemPage = (props) => {
     );
   }
 
+
   let buttons;
   if (state && isEditMode) {
     buttons = (
       <MainButton onClick={saveChangesHandler}>SAVE CHANGES</MainButton>
     );
   } else if (state && !isEditMode) {
-    buttons = <MainButton to='/item/all'>GO BACK</MainButton>;
+    buttons = <MainButton to='/item/all'>GO BACK</MainButton>
   }
 
   return (

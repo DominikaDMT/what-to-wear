@@ -38,6 +38,7 @@ const AllItemsPage = () => {
           name={item.name}
           color={item.color}
           image={item.image}
+          imageURL={item.imageURL}
         />
       ));
     }
@@ -56,6 +57,7 @@ const AllItemsPage = () => {
               name={item.name}
               color={item.color}
               image={item.image}
+              imageURL={item.imageURL}
             />
           ))}
           {!isLoading && !loadedItems && <p>Add items to your collection</p> }

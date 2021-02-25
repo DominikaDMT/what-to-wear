@@ -7,6 +7,7 @@ const initialState = {
   name: '',
   level: '',
   image: '',
+  imageURL: '',
 };
 
 const inputReducer = (state, action) => {
@@ -35,6 +36,11 @@ const inputReducer = (state, action) => {
       return {
         ...state,
         image: action.payload,
+      };
+    case 'imageURL':
+      return {
+        ...state,
+        imageURL: action.payload,
       };
     case 'state':
       return action.payload;

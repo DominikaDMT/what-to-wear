@@ -28,7 +28,7 @@ const ItemForm = (props) => {
 
   return (
     <>
-      {/* <div className={classes.PhotoContainer}> {props.children}</div> */}
+      <div className={classes.PhotoContainer}> {props.children} </div>
       <form
         className={classes.root}
         noValidate
@@ -47,6 +47,7 @@ const ItemForm = (props) => {
             variant='outlined'
             className={classes.formControl}
             style={{ width: '48%' }}
+            size='small'
           >
             <InputLabel id='demo-simple-select-outlined-label'>
               Color
@@ -81,6 +82,7 @@ const ItemForm = (props) => {
           <TextField
             id='outlined-basic'
             label='Brand'
+            size='small'
             variant='outlined'
             style={{ width: '48%' }}
             value={props.item.brand}
@@ -93,6 +95,7 @@ const ItemForm = (props) => {
           <TextField
             id='outlined-basic'
             label='Description'
+            size='small'
             variant='outlined'
             style={{ width: '100%' }}
             value={props.item.name}
@@ -101,26 +104,51 @@ const ItemForm = (props) => {
             }
           />
         </div>
-        {props.creating && <div className={ownClasses.DescriptionContainer}>
-          <TextField
-            id='outlined-basic'
-            label='URL'
-            variant='outlined'
-            style={{ width: '100%' }}
-            value={props.item.image}
-            onChange={(e) =>
-              props.dispatch({ type: 'image', payload: e.target.value })
-            }
-          />
-        </div>}
+        {props.creating && (
+          <div className={ownClasses.DescriptionContainer}>
+            <TextField
+              id='outlined-basic'
+              label='URL'
+              size='small'
+              variant='outlined'
+              style={{ width: '100%' }}
+              value={props.item.imageURL}
+              onChange={(e) =>
+                props.dispatch({ type: 'imageURL', payload: e.target.value })
+              }
+            />
+          </div>
+        )}
 
-        <RadioGroup aria-label="level" name="level" value={`${props.item.level}`} onChange={(e) =>
-              props.dispatch({ type: 'level', payload: e.target.value })} >
-        <FormControlLabel value='1' control={<Radio />} label='t-shirt / shirt /
-              blouse' />
-        <FormControlLabel value='2' control={<Radio />} label='trousers / skirt' />
-        <FormControlLabel value='3' control={<Radio />} label='shoes' />
-      </RadioGroup>
+        <RadioGroup
+          size='medium'
+          aria-label='level'
+          name='level'
+          value={`${props.item.level}`}
+          onChange={(e) =>
+            props.dispatch({ type: 'level', payload: e.target.value })
+          }
+        >
+          <FormControlLabel
+            size='small'
+            value='1'
+            control={<Radio />}
+            label='t-shirt / shirt /
+              blouse'
+          />
+          <FormControlLabel
+            size='small'
+            value='2'
+            control={<Radio />}
+            label='trousers / skirt'
+          />
+          <FormControlLabel
+            size='small'
+            value='3'
+            control={<Radio />}
+            label='shoes'
+          />
+        </RadioGroup>
 
       </form>
       <SecondaryButton>Select matching outfits</SecondaryButton>

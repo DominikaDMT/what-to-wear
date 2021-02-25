@@ -10,6 +10,7 @@ import Modal from '../../Elements/Modal/Modal';
 import { AuthContext } from '../../context/auth-context';
 import { useHttpClient } from '../../Util/http-hook';
 import useFormReducer from '../../Util/form-hook';
+import ImageUpload from '../../Elements/ImageUpload/ImageUpload';
 
 
 const NewItem = () => {
@@ -21,29 +22,43 @@ const NewItem = () => {
 
   const addNewItem = async () => {
     try {
+
+      // const formData = new FormData();
+      // formData.append('name', state.name);
+      // formData.append('image', state.image);
+      // formData.append('imageURL', state.imageURL);
+      // formData.append('color', state.color);
+      // formData.append('level', state.level);
+      // formData.append('brand', state.brand);
+      // formData.append('creator', auth.userId);
+
       await sendRequest(
         'http://localhost:5000/api/clothes/newitem',
         'POST',
         JSON.stringify({
           name: state.name,
           image: state.image,
+          imageURL: state.imageURL,
           color: state.color,
           level: state.level,
           brand: state.brand,
           creator: auth.userId,
         }),
-        { 'Content-Type': 'application/json' }
+        { 'Content-Type': 'application/json' },
+        // formData,
+        // { 'Content-Type': 'multipart/form-data' },
+        // + automatycznie dodane nagłówki
       );
       history.push('/mainpage');
     } catch (err) {}
   };
 
   return (
-    <Layout buttons={<MainButton onClick={addNewItem} disabled={!(state.color, state.level)}>ADD ITEM</MainButton>}>
+    <Layout buttons={<MainButton onClick={addNewItem} disabled={!(state.color && state.level && (state.image || state.imageURL))}>ADD ITEM</MainButton>}>
       {error && <Modal closeModal={resetError}>{error}</Modal>}
       {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
-      <ItemForm item={state} dispatch={dispatch} creating={true}>
-        <input type='file' />
+      <ItemForm item={state} dispatch={dispatch} creating={true} >
+        <ImageUpload dispatch={dispatch} newItem/>
       </ItemForm>
     </Layout>
   );
