@@ -8,3 +8,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+form div label span span {
+  height: 6px;
+  width: 6px;
+  }

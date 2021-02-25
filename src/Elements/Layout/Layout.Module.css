@@ -2,27 +2,31 @@
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 
 }
 
 .Nav {
+  display: block;
   width: 100%;
-  height: max(10%, 80px);
+  height: max(10%, 70px);
+  flex-shrink: 0;
 }
 
 .Content {
   flex-grow: 1;
-  padding: 3%;
+  padding: 15px;
   width: 100%;
   max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
 }
 
 .ButtonsContainer {
@@ -32,4 +36,11 @@
   margin-bottom: 5%;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-height: 750px) {
+  .Content {
+    padding: 8px;
+  }
 }

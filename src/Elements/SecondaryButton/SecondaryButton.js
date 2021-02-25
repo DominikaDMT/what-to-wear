@@ -13,7 +13,7 @@ const SecondaryButton = (props) => {
   }
 
   return (
-    <button className={classes.SecondaryButton} onClick={props.onClick}>
+    <button className={classes.SecondaryButton} onClick={props.onClick} style={props.style}>
       {buttonContent}
     </button>
   );
