@@ -11,7 +11,8 @@ const ItemThumbnail = (props) => {
   return (
     <div className={classes.ItemThumbnail}>
     <Link to={`/item/${props.id}`}>
-      <img src={source} alt={props.name} />
+      {props.image && <img src={`data:image/jpg;base64,${(source)}`} alt={props.name} />}
+      {props.imageURL && <img src={source} alt={props.name} />}
     </Link>
     </div>
   );

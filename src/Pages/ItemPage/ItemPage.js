@@ -76,6 +76,8 @@ const ItemPage = (props) => {
       );
       history.push('/item/all');
     } catch (err) {}
+    history.push('/item/all');
+
   };
 
   let content;
@@ -87,7 +89,7 @@ const ItemPage = (props) => {
         <ItemForm item={state} dispatch={dispatch}>
           <div className={classes.ImagePreview} 
           style={state.imageURL ? {backgroundImage: "url('" + state.imageURL + "')"} : {}}>
-            {state.image && <img src={state.image} alt={state.name} />}
+            {state.image && <img src={`data:image/jpg;base64,${state.image}`} alt={state.name} />}
           </div>
         </ItemForm>
       </>
@@ -99,7 +101,7 @@ const ItemPage = (props) => {
       <>
         <div className={classes.ImagePreviewNoEditMode} 
         style={state.imageURL ? {backgroundImage: "url('" + state.imageURL + "')"} : {}}>
-          {state.image && <img src={state.image} alt={state.name} />}
+          {state.image && <img src={`data:image/jpg;base64,${state.image}`} alt={state.name} />}
         </div>
 
         <div className={classes.Info}>
