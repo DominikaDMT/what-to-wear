@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import ItemThumbnail from '../ItemThumbnail/ItemThumbnail';
+import ItemThumbnail from '../../Elements/ItemThumbnail/ItemThumbnail';
 import MainButton from '../../Elements/MainButton/MainButton.';
 import { useHttpClient } from '../../Util/http-hook';
 import Modal from '../../Elements/Modal/Modal';
