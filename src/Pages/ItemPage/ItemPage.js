@@ -85,10 +85,9 @@ const ItemPage = (props) => {
       <>
         <p className={classes.Paragraph}>Update item</p>
         <ItemForm item={state} dispatch={dispatch}>
-          {/* ZAMMIENIĆ NA STATE.IMAGEURL */}
           <div className={classes.ImagePreview} 
-          style={state.image ? {backgroundImage: "url('" + state.image + "')"} : {}}>
-            {/* {state.image && <img src={state.image} alt={state.name} />} */}
+          style={state.imageURL ? {backgroundImage: "url('" + state.imageURL + "')"} : {}}>
+            {state.image && <img src={state.image} alt={state.name} />}
           </div>
         </ItemForm>
       </>
@@ -98,10 +97,9 @@ const ItemPage = (props) => {
 
     content = (
       <>
-          {/* ZAMMIENIĆ NA STATE.IMAGEURL */}
         <div className={classes.ImagePreviewNoEditMode} 
-        style={state.image ? {backgroundImage: "url('" + state.image + "')"} : {}}>
-          {/* {state.image && <img src={state.image} alt={state.name} />} */}
+        style={state.imageURL ? {backgroundImage: "url('" + state.imageURL + "')"} : {}}>
+          {state.image && <img src={state.image} alt={state.name} />}
         </div>
 
         <div className={classes.Info}>

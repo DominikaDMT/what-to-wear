@@ -37,17 +37,18 @@ const UserPage = () => {
       {!isLoading && userProfile && (
         <>
           <div className={classes.ProfilePicture}>
-            <img src={userProfile.image} alt={userProfile.name} />
+            <img src={userProfile.image || 'https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg'} alt={userProfile.name} />
           </div>
           <div className={classes.Info}>
             <p className={classes.Name}>
-              Nazwa: <strong>{userProfile.name}</strong>
+              Username: <strong>{userProfile.name}</strong>
+            </p>
+
+            <p className={classes.Name}>
+              Items: <strong>{userProfile.clothes}</strong>
             </p>
             <p className={classes.Name}>
-              E-mail: <strong>{userProfile.email}</strong>
-            </p>
-            <p className={classes.Name}>
-              Liczba ubrań: <strong>{userProfile.clothes}</strong>
+              Collections: <strong>0</strong>
             </p>
           </div>
         </>

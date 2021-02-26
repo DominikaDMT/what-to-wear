@@ -23,29 +23,29 @@ const NewItem = () => {
   const addNewItem = async () => {
     try {
 
-      // const formData = new FormData();
-      // formData.append('name', state.name);
-      // formData.append('image', state.image);
-      // formData.append('imageURL', state.imageURL);
-      // formData.append('color', state.color);
-      // formData.append('level', state.level);
-      // formData.append('brand', state.brand);
-      // formData.append('creator', auth.userId);
+      const formData = new FormData();
+      formData.append('name', state.name);
+      formData.append('image', state.image);
+      formData.append('imageURL', state.imageURL);
+      formData.append('color', state.color);
+      formData.append('level', state.level);
+      formData.append('brand', state.brand);
+      formData.append('creator', auth.userId);
 
       await sendRequest(
         'http://localhost:5000/api/clothes/newitem',
         'POST',
-        JSON.stringify({
-          name: state.name,
-          image: state.image,
-          imageURL: state.imageURL,
-          color: state.color,
-          level: state.level,
-          brand: state.brand,
-          creator: auth.userId,
-        }),
-        { 'Content-Type': 'application/json' },
-        // formData,
+        // JSON.stringify({
+        //   name: state.name,
+        //   image: state.image,
+        //   imageURL: state.imageURL,
+        //   color: state.color,
+        //   level: state.level,
+        //   brand: state.brand,
+        //   creator: auth.userId,
+        // }),
+        // { 'Content-Type': 'application/json' },
+        formData,
         // { 'Content-Type': 'multipart/form-data' },
         // + automatycznie dodane nagłówki
       );
