@@ -26,7 +26,11 @@ const MainPage = () => {
       >
         <div className={classes.Outfit}>
           <div className={classes.Level1}></div>
-          <div className={classes.Level2}></div>
+          <div className={classes.Level2}>
+            <p>
+              Soon you will be able to get a random outfit or select a favourite one on this page.
+            </p>
+          </div>
           <div className={classes.Level3}></div>
         </div>
       </Layout>

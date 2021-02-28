@@ -45,3 +45,11 @@
 .SmallButton:nth-of-type(1) i {
   padding-left: 7px;
 }
+
+.Level2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 17%;
+}
