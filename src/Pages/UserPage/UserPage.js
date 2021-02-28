@@ -37,7 +37,7 @@ const UserPage = () => {
       {!isLoading && userProfile && (
         <>
           <div className={classes.ProfilePicture}>
-            <img src={userProfile.image || 'https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg'} alt={userProfile.name} />
+            {userProfile.image ? <img src={userProfile.image} alt={userProfile.name} /> : <i className="fas fa-user-circle"></i>}
           </div>
           <div className={classes.Info}>
             <p className={classes.Name}>

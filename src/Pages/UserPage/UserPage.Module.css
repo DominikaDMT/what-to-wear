@@ -5,12 +5,20 @@
   max-height: 300px;
   /* background-color: rgba(166, 168, 182, 0.432); */
   margin: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ProfilePicture img {
   height: 100%;
   width: 100%;
   border-radius: 50%;
+}
+
+.ProfilePicture i {
+  font-size: 25vh;
+  color: rgb(217, 217, 224);
 }
 
 .Name {
