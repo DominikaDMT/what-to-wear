@@ -33,7 +33,7 @@ const NewItem = () => {
       formData.append('creator', auth.userId);
 
       await sendRequest(
-        'http://localhost:5000/api/clothes/newitem',
+        `${process.env.REACT_APP_BACKEND_URL}/clothes/newitem`,
         'POST',
         // JSON.stringify({
         //   name: state.name,

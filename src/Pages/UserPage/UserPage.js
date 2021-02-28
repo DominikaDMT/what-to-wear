@@ -16,7 +16,7 @@ const UserPage = () => {
     const fetchUser = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/user/profile/${auth.userId}`
+          `${process.env.REACT_APP_BACKEND_URL}/user/profile/${auth.userId}`
         );
         setUserProfile({
           id: responseData.user.id,

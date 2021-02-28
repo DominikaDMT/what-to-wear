@@ -27,7 +27,7 @@ const ItemPage = (props) => {
       if (fetchingitem) {
         try {
           const data = await sendRequest(
-            `http://localhost:5000/api/clothes/item/${itemId}`
+            `${process.env.REACT_APP_BACKEND_URL}/clothes/item/${itemId}`
           );
           const item = data.item;
           dispatch({
@@ -57,7 +57,7 @@ const ItemPage = (props) => {
   const saveChangesHandler = async () => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/clothes/item/${itemId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/clothes/item/${itemId}`,
         'PATCH',
         JSON.stringify({
           ...state,
@@ -71,7 +71,7 @@ const ItemPage = (props) => {
   const deleteItemHandler = async () => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/clothes/item/${itemId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/clothes/item/${itemId}`,
         'DELETE'
       );
       history.push('/item/all');

@@ -20,7 +20,7 @@ const AllItemsPage = () => {
     const fetchItems = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/clothes/all/${userId}`
+          `${process.env.REACT_APP_BACKEND_URL}/clothes/all/${userId}`
         );
         setLoadedItems(responseData.allItems);
       } catch (err) {}

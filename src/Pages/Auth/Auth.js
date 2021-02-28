@@ -65,7 +65,7 @@ const Auth = () => {
     if (isRegisterMode) {
       try {
         const responseData = await sendRequest(
-          'http://localhost:5000/api/user/signup',
+          `${process.env.REACT_APP_BACKEND_URL}/user/signup`,
           'POST',
           JSON.stringify({
             name: inputsValidity.usernameInput.value,
@@ -82,7 +82,7 @@ const Auth = () => {
     } else {
       try {
         const responseData = await sendRequest(
-          'http://localhost:5000/api/user/login',
+          `${process.env.REACT_APP_BACKEND_URL}/user/login`,
           'POST',
           JSON.stringify({
             email: inputsValidity.emailInput.value,
