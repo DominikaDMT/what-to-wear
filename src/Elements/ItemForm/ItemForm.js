@@ -42,6 +42,34 @@ const ItemForm = (props) => {
           alignItems: 'center',
         }}
       >
+        {props.creating && (
+          <div className={ownClasses.DescriptionContainer}>
+            <TextField
+              id='outlined-basic'
+              label="URL (if there's no image)"
+              size='small'
+              variant='outlined'
+              style={{ width: '100%' }}
+              value={props.item.imageURL}
+              onChange={(e) =>
+                props.dispatch({ type: 'imageURL', payload: e.target.value })
+              }
+            />
+          </div>
+        )}
+        <div className={ownClasses.DescriptionContainer}>
+          <TextField
+            id='outlined-basic'
+            label='Description'
+            size='small'
+            variant='outlined'
+            style={{ width: '100%' }}
+            value={props.item.name}
+            onChange={(e) =>
+              props.dispatch({ type: 'description', payload: e.target.value })
+            }
+          />
+        </div>
         <div className={ownClasses.DescriptionContainer}>
           <FormControl
             variant='outlined'
@@ -91,34 +119,6 @@ const ItemForm = (props) => {
             }
           />
         </div>
-        <div className={ownClasses.DescriptionContainer}>
-          <TextField
-            id='outlined-basic'
-            label='Description'
-            size='small'
-            variant='outlined'
-            style={{ width: '100%' }}
-            value={props.item.name}
-            onChange={(e) =>
-              props.dispatch({ type: 'description', payload: e.target.value })
-            }
-          />
-        </div>
-        {props.creating && (
-          <div className={ownClasses.DescriptionContainer}>
-            <TextField
-              id='outlined-basic'
-              label='URL'
-              size='small'
-              variant='outlined'
-              style={{ width: '100%' }}
-              value={props.item.imageURL}
-              onChange={(e) =>
-                props.dispatch({ type: 'imageURL', payload: e.target.value })
-              }
-            />
-          </div>
-        )}
 
         <RadioGroup
           size='medium'
@@ -149,7 +149,7 @@ const ItemForm = (props) => {
             label='shoes'
           />
         </RadioGroup>
-
+        
       </form>
       <SecondaryButton>Select matching outfits</SecondaryButton>
     </>
