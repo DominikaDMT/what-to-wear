@@ -60,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ddd;
+  /* background-color: #ddd; */
   overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
@@ -80,7 +80,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ddd;
+  /* background-color: #ddd; */
   overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
