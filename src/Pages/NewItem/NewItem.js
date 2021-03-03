@@ -30,7 +30,6 @@ const NewItem = () => {
       formData.append('color', state.color);
       formData.append('level', state.level);
       formData.append('brand', state.brand);
-      formData.append('creator', auth.userId);
 
       await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/clothes/newitem`,
