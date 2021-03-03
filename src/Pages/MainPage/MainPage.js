@@ -29,7 +29,7 @@ const MainPage = () => {
   const getRandomItem = async (lvl) => {
     try {
       randomItem = await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/clothes/random`,
+        `${process.env.REACT_APP_BACKEND_URL}/clothes/item/random`,
         'POST',
         JSON.stringify({
           level: lvl,
