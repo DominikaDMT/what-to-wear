@@ -4,8 +4,8 @@
 
 If you don't remeber what's in your closet, or the cabinets are too inconvenient to look over the deep drawers in order to decide what to wear - just use this app.
 
-- Create account (dummy authorization for now, will be fixed later)
-- Add your clothes to data-base, provide an image or URL
+- Create account
+- Add your clothes to the data-base - provide an image or URL
 - Get random outfit on the main page, or change the individual item by clicking on it
 
 #### If you want to test the app with provided clothes, log-in as an existing user: 
@@ -17,7 +17,6 @@ If you don't remeber what's in your closet, or the cabinets are too inconvenient
 
 #### Features that will be implemented in the nearest future:
 - Suitable menu for desktops
-- Real authorization and keeping user logged-in
 - Implementation for remaining buttons
 - Creating favourite outfits by user 
 - Saving already 'used' outfits (so they won't occur again next time)
