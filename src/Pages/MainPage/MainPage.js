@@ -35,7 +35,7 @@ const MainPage = () => {
           level: lvl,
           creatorId: userId,
         }),
-        { 'Content-Type': 'application/json' }
+        { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + auth.token}
       );
       if (lvl === 1) {
         setItemLevel1({image: randomItem.item.image, imageURL: randomItem.item.imageURL, id: randomItem.item.id})
