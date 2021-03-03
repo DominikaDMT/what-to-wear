@@ -27,7 +27,7 @@ const ItemPage = (props) => {
       if (fetchingitem) {
         try {
           const data = await sendRequest(
-            `${process.env.REACT_APP_BACKEND_URL}/clothes/item/${itemId}`
+            `${process.env.REACT_APP_BACKEND_URL}/clothes/item/${itemId}`, 'GET', null, { 'Authorization': 'Bearer ' + auth.token },
           );
           const item = data.item;
           dispatch({
@@ -62,7 +62,8 @@ const ItemPage = (props) => {
         JSON.stringify({
           ...state,
         }),
-        { 'Content-Type': 'application/json' }
+        { 'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + auth.token }
       );
       history.push('/item/all');
     } catch (err) {}
@@ -72,7 +73,7 @@ const ItemPage = (props) => {
     try {
       await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/clothes/item/${itemId}`,
-        'DELETE'
+        'DELETE', null, { 'Authorization': 'Bearer ' + auth.token }
       );
       history.push('/item/all');
     } catch (err) {}

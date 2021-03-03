@@ -20,7 +20,7 @@ const AllItemsPage = () => {
     const fetchItems = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/clothes/all/${userId}`
+          `${process.env.REACT_APP_BACKEND_URL}/clothes/all/${userId}`, 'GET', null, { 'Authorization': 'Bearer ' + auth.token }
         );
         setLoadedItems(responseData.allItems);
       } catch (err) {}

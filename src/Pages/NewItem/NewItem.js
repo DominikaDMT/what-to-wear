@@ -46,6 +46,7 @@ const NewItem = () => {
         // }),
         // { 'Content-Type': 'application/json' },
         formData,
+        { 'Authorization': 'Bearer ' + auth.token },
         // { 'Content-Type': 'multipart/form-data' },
         // + automatycznie dodane nagłówki
       );

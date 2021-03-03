@@ -19,9 +19,9 @@ const MainPage = () => {
   const divLevel3 = useRef()
 
   useEffect(() => {
-    setTimeout(() => {
+    if (auth.userId) {
       getRandomOutfit();
-    }, 0);
+    }
   }, [])
 
   let randomItem;
