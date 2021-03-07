@@ -5,12 +5,12 @@ import classes from './NavLinks.Module.css';
 import {AuthContext} from '../../context/auth-context'
 
 
-const NavLinks = () => {
+const NavLinks = (props) => {
 
   const auth = useContext(AuthContext)
 
   return (
-    <ul className={classes.LinksList}>
+    <ul className={props.sideDrawer ? classes.LinksListSideDrawer : classes.LinksListNavBar}>
       {auth.isLoggedIn && <li>
       <NavLink to='/mainPage'>Main Page</NavLink>
       </li>}
@@ -27,7 +27,7 @@ const NavLinks = () => {
       <NavLink to='/auth'>Authenticate</NavLink>
       </li>}
       {auth.isLoggedIn && <li>
-        <button onClick={auth.logout} className={classes.LogoutBtn}>Logout</button>
+        <button onClick={auth.logout} className={props.sideDrawer ? classes.LogoutBtnSideDrawer : classes.LogoutBtnNavBar}>Logout</button>
       </li>}
 
     </ul>

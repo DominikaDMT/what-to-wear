@@ -14,7 +14,7 @@ const NavBar = () => {
 
   return (
     <>
-      <SideDrawer closeSideDrawer={toggleSideDrawer} show={sideBarIsVisible}><NavLinks /></SideDrawer>
+      <SideDrawer closeSideDrawer={toggleSideDrawer} show={sideBarIsVisible}><NavLinks sideDrawer={true}/></SideDrawer>
       <nav className={classes.Navigation}>
         <div className={classes.Hamburger} onClick={toggleSideDrawer}>
           <i className='fas fa-bars'></i>
@@ -22,7 +22,8 @@ const NavBar = () => {
         <Link to='/mainPage'>
           <h2 className={classes.Logo}>What to Wear?</h2>
         </Link>
-        <div></div>
+        <NavLinks/>
+        <div className={classes.InvisibleDiv}></div>
       </nav>
     </>
   );

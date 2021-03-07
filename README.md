@@ -16,12 +16,12 @@ If you don't remeber what's in your closet, or the cabinets are too inconvenient
 | tester@test.com | test123 |
 
 #### Features that will be implemented in the nearest future:
-- Suitable menu for desktops
 - Implementation for remaining buttons
 - Creating favourite outfits by user 
 - Saving already 'used' outfits (so they won't occur again next time)
 - Getting random outfits and items filtered by colour / weather / occasion
 - Expanded item-form in order to provide tags reffering to weather / occasion etc.
 - Possibility of adding one-piece items like dresses or jumpsuits
+- Feature for cropping an images
 - Better User Experience
 - and many more, as the app will grow :)
