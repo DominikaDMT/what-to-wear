@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../context/auth-context';
 
 import Layout from '../../Elements/Layout/Layout';
+import LoadingSpinner from '../../Elements/LoadingSpinner/LoadingSpinner';
 import MainButton from '../../Elements/MainButton/MainButton.';
 import { useHttpClient } from '../../Util/http-hook';
 
@@ -71,6 +72,7 @@ const MainPage = () => {
           </>
         }
       >
+        {isLoading && <LoadingSpinner/>}
         <div className={classes.Outfit}>
           <div className={classes.Level1} onClick={() => getRandomItem(1)} ref={divLevel1}
           style={itemLevel1.imageURL ? {backgroundImage: "url('" + itemLevel1.imageURL + "')"} : {}}>

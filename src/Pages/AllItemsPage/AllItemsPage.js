@@ -47,6 +47,7 @@ const AllItemsPage = () => {
   return (
     <Layout buttons={<MainButton to='/item/new'>ADD NEW ITEM</MainButton>}>
       {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
+      {isLoading && <LoadingSpinner/>}
       <div className={classes.Container}>
         {!isLoading &&
           loadedItems &&

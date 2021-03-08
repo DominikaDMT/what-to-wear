@@ -56,7 +56,7 @@ const NewItem = () => {
   return (
     <Layout buttons={<MainButton onClick={addNewItem} disabled={!(state.color && state.level && (state.image || state.imageURL))}>ADD ITEM</MainButton>}>
       {error && <Modal closeModal={resetError}>{error}</Modal>}
-      {/* {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>} */}
+      {isLoading && <Modal closeModal={resetError} withSpinner>{<LoadingSpinner/>}</Modal>}
       <ItemForm item={state} dispatch={dispatch} creating={true} >
         <ImageUpload dispatch={dispatch} newItem/>
       </ItemForm>
