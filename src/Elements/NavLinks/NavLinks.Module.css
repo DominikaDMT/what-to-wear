@@ -1,6 +1,4 @@
-/* Menu bar */
-
-.LinksListNavBar {
+.LinksList {
   height: 100%;
   display: flex;
   align-items: center;
@@ -9,62 +7,56 @@
   color: #555;
 }
 
-.LinksListNavBar li {
+.LinksList li {
   padding: 10px;
+  cursor: pointer;
 }
 
-.LinksListNavBar li:nth-last-child(1) {
+.LinksList li:hover,
+.LogoutBtn:hover {
+  cursor: pointer;
+  color: rgb(25, 25, 77);
+}
+
+.LinksList li:nth-last-child(1) {
   padding-right: 0;
 }
 
-.LogoutBtnNavBar {
+.LogoutBtn {
   background-color: transparent;
   border: none;
   color: #555;
   font-size: 16px;
 }
 
-/* SideDrawer */
-
-.LinksListSideDrawer {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 1rem;
-  padding: 15%;
-}
-
-li {
-  padding: 15px;
-}
-
-.LinksList li a {
-  font-size: 1rem;
-  color: #000;
-}
-
-.LogoutBtnSideDrawer {
-  background-color: rgba(60, 60, 128, 0.582);
-  font-size: 14px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  margin: 10px 0;
-  text-align: center;
-  width: 100px;
-  transform: translateX(-5px);
-}
-
 @media (max-width: 768px) {
-  .LinksListNavBar {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) and (orientation: portrait) {
   .LinksList {
-    padding: 8%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15%;
+  }
+  .LinksList li {
+    padding: 15px;
+  }
+
+  .LinksList li a {
+    font-size: 1rem;
+  }
+
+  .LogoutBtn {
+    background-color: #8e8eb5;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    margin: 10px 0;
+    text-align: center;
+    width: 100px;
+    transform: translateX(-5px);
+  }
+
+  .LogoutBtn:hover {
+    color: white;
+    background-color: #7f7f97;
   }
 }

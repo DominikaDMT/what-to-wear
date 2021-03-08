@@ -10,7 +10,7 @@ const NavLinks = (props) => {
   const auth = useContext(AuthContext)
 
   return (
-    <ul className={props.sideDrawer ? classes.LinksListSideDrawer : classes.LinksListNavBar}>
+    <ul className={classes.LinksList}>
       {auth.isLoggedIn && <li>
       <NavLink to='/mainPage'>Main Page</NavLink>
       </li>}
@@ -27,7 +27,7 @@ const NavLinks = (props) => {
       <NavLink to='/auth'>Authenticate</NavLink>
       </li>}
       {auth.isLoggedIn && <li>
-        <button onClick={auth.logout} className={props.sideDrawer ? classes.LogoutBtnSideDrawer : classes.LogoutBtnNavBar}>Logout</button>
+        <button onClick={auth.logout} className={classes.LogoutBtn}>Logout</button>
       </li>}
 
     </ul>

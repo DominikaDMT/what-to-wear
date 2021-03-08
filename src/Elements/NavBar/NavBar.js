@@ -22,7 +22,9 @@ const NavBar = () => {
         <Link to='/mainPage'>
           <h2 className={classes.Logo}>What to Wear?</h2>
         </Link>
+        <div className={classes.NavLinksContainer}>
         <NavLinks/>
+        </div>
         <div className={classes.InvisibleDiv}></div>
       </nav>
     </>

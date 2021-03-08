@@ -58,6 +58,9 @@
     top: auto;
     left: auto;
   }
+  .NavLinksContainer {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
