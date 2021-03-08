@@ -72,7 +72,7 @@ const MainPage = () => {
           </>
         }
       >
-        {isLoading && <LoadingSpinner/>}
+        {/* {isLoading && <LoadingSpinner/>} */}
         <div className={classes.Outfit}>
           <div className={classes.Level1} onClick={() => getRandomItem(1)} ref={divLevel1}
           style={itemLevel1.imageURL ? {backgroundImage: "url('" + itemLevel1.imageURL + "')"} : {}}>
