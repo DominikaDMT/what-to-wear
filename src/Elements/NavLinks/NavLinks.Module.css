@@ -29,6 +29,10 @@
   font-size: 16px;
 }
 
+.ActiveNavLink {
+  color: black;
+}
+
 @media (max-width: 768px) {
   .LinksList {
     flex-direction: column;

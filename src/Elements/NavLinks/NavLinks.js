@@ -12,19 +12,19 @@ const NavLinks = (props) => {
   return (
     <ul className={classes.LinksList}>
       {auth.isLoggedIn && <li>
-      <NavLink to='/mainPage'>Main Page</NavLink>
+      <NavLink activeClassName={classes.ActiveNavLink} to='/mainPage'>Main Page</NavLink>
       </li>}
       {auth.isLoggedIn && <li>
-      <NavLink to='/user'>My profile</NavLink>
+      <NavLink activeClassName={classes.ActiveNavLink} to='/user'>My profile</NavLink>
       </li>}
       {auth.isLoggedIn && <li>
-      <NavLink to='/item/new'>Add item</NavLink>
+      <NavLink activeClassName={classes.ActiveNavLink} to='/item/new'>Add item</NavLink>
       </li>}
       {auth.isLoggedIn && <li>
-      <NavLink to='/item/all'>All items</NavLink>
+      <NavLink activeClassName={classes.ActiveNavLink} to='/item/all'>All items</NavLink>
       </li>}
       {!auth.isLoggedIn && <li>
-      <NavLink to='/auth'>Authenticate</NavLink>
+      <NavLink activeClassName={classes.ActiveNavLink} to='/auth'>Authenticate</NavLink>
       </li>}
       {auth.isLoggedIn && <li>
         <button onClick={auth.logout} className={classes.LogoutBtn}>Logout</button>
