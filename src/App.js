@@ -19,6 +19,7 @@ import useAuth from './Util/auth-hook';
 import './App.css';
 import Modal from './Elements/Modal/Modal';
 import LoadingSpinner from './Elements/LoadingSpinner/LoadingSpinner';
+import NavBar from './Elements/NavBar/NavBar';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   if (token) {
     routes = (
       <>
+        <NavBar/>
         <Route path='/' exact component={MainPage} />
         <Switch>
           <Route path='/mainPage' component={MainPage} />
@@ -44,7 +46,10 @@ function App() {
     routes = (
       <Switch>
         <Route path='/' exact component={StartingPage} />
-        <Route path='/auth' component={Auth}/>
+        <Route path='/auth' >
+          <NavBar/>
+          <Auth/>
+        </Route>
         <Redirect to='/' />
       </Switch>
     );

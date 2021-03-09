@@ -7,14 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
-}
-
-.Nav {
-  display: block;
-  width: 100%;
-  height: max(10%, 70px);
-  flex-shrink: 0;
 }
 
 .Content {
@@ -22,6 +14,7 @@
   padding: 15px;
   width: 100%;
   max-width: 1000px;
+  margin-top: max(10%, 70px);
   display: flex;
   flex-direction: column;
   align-items: center;
