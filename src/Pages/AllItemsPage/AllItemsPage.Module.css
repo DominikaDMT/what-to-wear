@@ -8,10 +8,9 @@
   align-items: center;
   justify-content: center;
 }
-/* 
-.Container div {
-  margin: 2%;
-  width: 29%;
-  height: 25%;
-  background-color: rgb(73, 73, 73);
-} */
+
+.Title {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
