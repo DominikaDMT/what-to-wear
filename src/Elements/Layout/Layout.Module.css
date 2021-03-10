@@ -40,3 +40,9 @@
     margin-bottom: 3%;
   }
 }
+
+@media (max-width: 999px) {
+  .Content {
+    max-width: 95vw;
+  }
+}

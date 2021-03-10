@@ -9,6 +9,7 @@ import {
 import AllItemsPage from './Pages/AllItemsPage/AllItemsPage';
 import Auth from './Pages/Auth/Auth';
 import ItemPage from './Pages/ItemPage/ItemPage';
+import LatestSetsPage from './Pages/LatestSetsPage/LatestSetsPage';
 import MainPage from './Pages/MainPage/MainPage';
 import NewItem from './Pages/NewItem/NewItem';
 import StartingPage from './Pages/StartingPage/StartingPage';
@@ -35,7 +36,8 @@ function App() {
         <Switch>
           <Route path='/mainPage' component={MainPage} />
           <Route path='/user' component={UserPage} />
-          <Route path='/item/all' component={AllItemsPage} />
+          <Route path='/item/all' exact component={AllItemsPage} />
+          <Route path='/item/all/latest-sets' component={LatestSetsPage} />
           <Route path='/item/new' component={NewItem} />
           <Route path='/item/:itemid' component={ItemPage} />
           <Redirect to='/mainPage' />

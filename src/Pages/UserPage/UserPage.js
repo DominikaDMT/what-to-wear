@@ -5,6 +5,7 @@ import { useHttpClient } from '../../Util/http-hook';
 import { AuthContext } from '../../context/auth-context';
 import classes from './UserPage.Module.css';
 import Layout from '../../Elements/Layout/Layout';
+import SecondaryButton from '../../Elements/SecondaryButton/SecondaryButton';
 
 const UserPage = () => {
   const [userProfile, setUserProfile] = useState({});
@@ -51,6 +52,7 @@ const UserPage = () => {
               Collections: <strong>0</strong>
             </p>
           </div>
+        <SecondaryButton to='/item/all/latest-sets'>Latest saved sets</SecondaryButton>
         </>
       )}
     </Layout>

@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/auth-context';
 import Layout from '../../Elements/Layout/Layout';
 import LoadingSpinner from '../../Elements/LoadingSpinner/LoadingSpinner';
 import MainButton from '../../Elements/MainButton/MainButton.';
+import Outfit from '../../Elements/Outfit/Outfit';
 import { useHttpClient } from '../../Util/http-hook';
 
 import classes from './MainPage.Module.css';
@@ -54,6 +55,22 @@ const MainPage = () => {
     divLevel3.current.click();
   }
 
+  const saveSet = async () => {
+    try {
+      await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/clothes/newset`, 'POST', JSON.stringify({
+        date: new Date().getTime(),
+        level1: itemLevel1.id,
+        level2: itemLevel2.id,
+        level3: itemLevel3.id,
+      }),
+      {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + auth.token,
+      }
+    );
+  } catch (err) {}
+};
+
   return (
     <>
       <Layout
@@ -66,29 +83,22 @@ const MainPage = () => {
               <p>LOSUJ</p>
               <p>GOTOWY ZESTAW</p>
             </MainButton>
-            <button className={classes.SmallButton}>
+            <button className={classes.SmallButton} onClick={saveSet}>
               <i className='fas fa-check'></i>
             </button>
           </>
         }
       >
         {/* {isLoading && <LoadingSpinner/>} */}
-        <div className={classes.Outfit}>
-          <div className={classes.Level1} onClick={() => getRandomItem(1)} ref={divLevel1}
-          style={itemLevel1.imageURL ? {backgroundImage: "url('" + itemLevel1.imageURL + "')"} : {}}>
-          {itemLevel1.image && <img src={`data:image/jpg;base64,${itemLevel1.image}`}/>}
-          </div>
-
-          <div className={classes.Level2} onClick={() => getRandomItem(2)} ref={divLevel2}
-          style={itemLevel2.imageURL ? {backgroundImage: "url('" + itemLevel2.imageURL + "')"} : {}}>
-          {itemLevel2.image && <img src={`data:image/jpg;base64,${itemLevel2.image}`}/>}
-          </div>
-
-          <div className={classes.Level3} onClick={() => getRandomItem(3)} ref={divLevel3}
-          style={itemLevel3.imageURL ? {backgroundImage: "url('" + itemLevel3.imageURL + "')"} : {}}>
-          {itemLevel3.image && <img src={`data:image/jpg;base64,${itemLevel3.image}`}/>}
-          </div>
-        </div>
+        <Outfit
+          getRandomItem={getRandomItem}
+          itemLevel1={itemLevel1}
+          itemLevel2={itemLevel2}
+          itemLevel3={itemLevel3}
+          divLevel1={divLevel1}
+          divLevel2={divLevel2}
+          divLevel3={divLevel3}
+        />
       </Layout>
     </>
   );
