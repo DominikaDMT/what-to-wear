@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import {
   BrowserRouter as Router,
   Redirect,
@@ -8,40 +8,45 @@ import {
 
 import AllItemsPage from './Pages/AllItemsPage/AllItemsPage';
 import Auth from './Pages/Auth/Auth';
-import ItemPage from './Pages/ItemPage/ItemPage';
 import LatestSetsPage from './Pages/LatestSetsPage/LatestSetsPage';
 import MainPage from './Pages/MainPage/MainPage';
-import NewItem from './Pages/NewItem/NewItem';
 import StartingPage from './Pages/StartingPage/StartingPage';
-import UserPage from './Pages/UserPage/UserPage';
+
+import Layout from './Elements/Layout/Layout';
+import LoadingSpinner from './Elements/LoadingSpinner/LoadingSpinner';
+import Modal from './Elements/Modal/Modal';
+import NavBar from './Elements/NavBar/NavBar';
+
 import { AuthContext } from './context/auth-context';
 import useAuth from './Util/auth-hook';
 
 import './App.css';
-import Modal from './Elements/Modal/Modal';
-import LoadingSpinner from './Elements/LoadingSpinner/LoadingSpinner';
-import NavBar from './Elements/NavBar/NavBar';
 
+const ItemPage = lazy(() => import('./Pages/ItemPage/ItemPage'));
+const NewItem = lazy(() => import('./Pages/NewItem/NewItem'));
+const UserPage = lazy(() => import('./Pages/UserPage/UserPage'));
 
 function App() {
-  const {token, login, logout, userId} = useAuth()
-  
+  const { token, login, logout, userId } = useAuth();
+
   let routes;
 
   if (token) {
     routes = (
       <>
-        <NavBar/>
+        <NavBar />
         <Route path='/' exact component={MainPage} />
-        <Switch>
-          <Route path='/mainPage' component={MainPage} />
-          <Route path='/user' component={UserPage} />
-          <Route path='/item/all' exact component={AllItemsPage} />
-          <Route path='/item/all/latest-sets' component={LatestSetsPage} />
-          <Route path='/item/new' component={NewItem} />
-          <Route path='/item/:itemid' component={ItemPage} />
-          <Redirect to='/mainPage' />
-        </Switch>
+        <Suspense fallback={ <Layout><LoadingSpinner/></Layout> }>
+          <Switch>
+            <Route path='/mainPage' component={MainPage} />
+            <Route path='/user' component={UserPage} />
+            <Route path='/item/all' exact component={AllItemsPage} />
+            <Route path='/item/all/latest-sets' component={LatestSetsPage} />
+            <Route path='/item/new' component={NewItem} />
+            <Route path='/item/:itemid' component={ItemPage} />
+            <Redirect to='/mainPage' />
+          </Switch>
+        </Suspense>
       </>
     );
   } else {
