@@ -66,8 +66,10 @@ const AllItemsPage = () => {
       {!isLoading && allItemsLoaded && <div className={classes.Container}>
           {/* <p className={classes.Title}>Tops:</p> */}
           {renderThumbnails(1)}
+          <hr/>
           {/* <p className={classes.Title}>Trousers and skirts:</p> */}
           {renderThumbnails(2)}
+          <hr/>
           {/* <p className={classes.Title}>Shoes:</p> */}
           {renderThumbnails(3)}
 
